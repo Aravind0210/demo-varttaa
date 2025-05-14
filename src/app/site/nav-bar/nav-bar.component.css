@@ -1,0 +1,17 @@
+/* Smooth dropdown icon rotation */
+svg.rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+  
+  header {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+
+  
+@media (min-width: 768px) {
+  nav a {
+    padding: 0.5rem 0.75rem;
+  }
+}

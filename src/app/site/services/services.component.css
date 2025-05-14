@@ -1,0 +1,19 @@
+.animate-wiggle {
+    animation: wiggle 1.5s infinite;
+  }
+  .animate-spin-slow {
+    animation: spin 6s linear infinite;
+  }
+  .animate-fadeIn {
+    animation: fadeIn 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0.4; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }

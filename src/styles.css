@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    .perspective {
+      perspective: 1200px;
+    }
+  
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+  
+    .animate-floating {
+      animation: floatY 4s ease-in-out infinite;
+    }
+  
+    .card-glow {
+      box-shadow:
+        0 0 25px rgba(232, 102, 59, 0.3),
+        0 0 60px rgba(232, 102, 59, 0.2),
+        0 0 90px rgba(232, 102, 59, 0.1);
+    }
+  
+    @keyframes floatY {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  
+    .border-gradient {
+      border-image: linear-gradient(135deg, #e8663b, #ffb703, #e8663b) 1;
+    }
+  }
+  

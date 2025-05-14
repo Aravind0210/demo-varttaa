@@ -1,0 +1,9 @@
+/* Optional: If you're using Tailwind, this may be minimal */
+:host {
+    display: block;
+  }
+  
+  section {
+    background-color: #fff;
+  }
+  

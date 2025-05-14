@@ -27,9 +27,16 @@
               }
             ],
             "styles": [
+              "node_modules/swiper/swiper-bundle.min.css",
+               "node_modules/aos/dist/aos.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/swiper/swiper-bundle.min.js",
+               "node_modules/aos/dist/aos.js",
+  "node_modules/gsap/dist/gsap.min.js"
+
+            ]
           },
           "configurations": {
             "production": {

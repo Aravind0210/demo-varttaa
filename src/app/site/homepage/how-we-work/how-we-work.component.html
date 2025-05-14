@@ -1,0 +1,39 @@
+<section class="py-20 bg-gray-50">
+  <div class="relative z-10 max-w-7xl mx-auto text-start p-[15px] mb-16">
+    <h2 class="text-5xl font-extrabold text-[rgb(254,66,0)] mb-4" data-aos="fade-up">How It Works</h2>
+    <h5 class="text-4xl  font-extrabold text-black">Steps to Work with Varttaa Overseas</h5>
+  </div>
+
+  <div class="relative w-full max-w-5xl mx-auto overflow-hidden">
+    <div
+      class="flex transition-transform duration-700 ease-in-out"
+      [ngStyle]="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <div *ngFor="let step of steps" class="w-full flex-shrink-0 px-4">
+        <div class="bg-white rounded-3xl shadow-lg p-8 text-center mx-auto max-w-xl animate-fade-in">
+          <img [src]="step.image" class="w-16 h-16 mx-auto mb-4" alt="Step Icon" />
+          <span class="text-sm text-[#fe4100] font-medium">{{ step.label }}</span>
+          <h3 class="text-2xl font-bold text-[#333333] mt-2">{{ step.title }}</h3>
+          <p class="text-gray-500 mt-3">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-6 gap-3">
+      <button
+        *ngFor="let step of steps; let i = index"
+        (click)="goToSlide(i)"
+        class="w-[42px] h-[42px] rounded-full flex items-center justify-center text-sm font-semibold transition-colors"
+        [ngClass]="{
+          'bg-[#fe4100] text-white': currentIndex === i,
+          'bg-gray-100 text-gray-500 border border-gray-300': currentIndex !== i
+        }"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</section>
