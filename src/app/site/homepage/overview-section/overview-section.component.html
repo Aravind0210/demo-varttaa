@@ -1,61 +1,55 @@
-<section #overviewContainer class="relative bg-gradient-to-br from-[#f0fdfa] to-[#defcf9] py-24 px-6 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
-  <!-- Decorative Background -->
-  <div class="absolute w-96 h-96 bg-[#00A896]/10 rounded-full blur-[120px] top-[-100px] left-[-100px] z-0"></div>
-  <div class="absolute w-72 h-72 bg-[#00A896]/20 rounded-full blur-[100px] bottom-[-80px] right-[-80px] z-0"></div>
+<div class="bg-white py-16 px-4 md:px-16">
+  <!-- Section Heading -->
+  <h2 class="text-4xl font-bold text-center text-[#f8622e] mb-12">Our Hot Selling Products</h2>
 
-  <div class="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-16">
-    <!-- Left: Text Content -->
-    <div>
-      <h2 class="text-6xl font-extrabold text-gray-800 leading-tight mb-6" data-aos="zoom-in" data-aos-delay="200">
-        <span class="text-[rgb(254,66,0)] block drop-shadow-md">Overview</span>
-
-        <span class="block">of Varatta Overseas</span>
-      </h2>
-      <p class="text-lg text-gray-700 mb-6" data-aos="fade-up" data-aos-delay="300">
-        At Varatta Overseas, we design and export cutting-edge food and beverage machines that redefine convenience and performance — from Softy Ice Cream Machines to Sugarcane Juice Machines.
-      </p>
-      <p class="text-base text-gray-600" data-aos="fade-up" data-aos-delay="400">
-        We proudly serve clients in 15+ countries, offering reliable, hygienic, and sustainable machinery engineered for excellence.
-      </p>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+    <!-- Left Content -->
+    <div class="md:col-span-1 space-y-6">
+      <h3 class="text-2xl font-bold text-[#132b4e]  leading-snug">
+        Highest quality <br> stainless steel solutions
+      </h3>
+      <p class="text-gray-700">Our range of products available for your kitchen</p>
+      <a href="#" class="text-red-600 flex items-center gap-2 font-semibold">
+        <span class="text-xl">↳</span> VIEW ALL PRODUCTS
+      </a>
     </div>
 
-    <!-- Right: Feature Cards -->
-    <div class="grid sm:grid-cols-2 gap-6" data-aos="fade-left" data-aos-delay="500">
-      <!-- Card 1 -->
-      <div class="relative bg-white/30 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500" data-aos="zoom-in" data-aos-delay="600">
-        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#00A896]/10 text-[rgb(254,66,0)] mb-4">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"></path>
-          </svg>
+    <!-- Carousel Section -->
+    <div class="md:col-span-3 relative">
+      <!-- Scroll Container -->
+      <div
+        #carousel
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth"
+      >
+        <div
+          *ngFor="let product of products"
+          [ngClass]="'min-w-[280px] flex-shrink-0 p-4 border-2 ' + product.border + ' bg-white snap-start rounded-lg'"
+        >
+          <img [src]="product.image" alt="{{product.title}}" class="w-full h-48 object-contain mx-auto" />
+          <h3 class="text-lg font-semibold mt-4 text-[#132b4e]">{{ product.title }}</h3>
+          <a href="#" class="text-red-600 flex items-center gap-2 mt-2 font-semibold">
+            <span class="text-xl">↳</span> VIEW MORE
+          </a>
         </div>
-        <h3 class="font-semibold text-lg text-gray-800 mb-2">Premium Quality</h3>
-        <p class="text-sm text-gray-600">Crafted to global hygiene and durability standards, our machines are built to last.</p>
       </div>
 
-      <!-- Card 2 -->
-      <div class="relative bg-white/30 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500" data-aos="zoom-in" data-aos-delay="700">
-        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#00A896]/10 text-[rgb(254,66,0)] mb-4">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m-4 4h10"></path>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg text-gray-800 mb-2">Global Presence</h3>
-        <p class="text-sm text-gray-600">Our machines power businesses in 15+ countries with trusted performance.</p>
+      <!-- Navigation Arrows -->
+      <div class="absolute -left-6 top-1/2 transform -translate-y-1/2">
+        <button (click)="scrollLeft()" class="w-10 h-10 rounded-full bg-black text-white text-xl flex items-center justify-center shadow">←</button>
       </div>
-
-      <!-- Card 3 -->
-      <div class="relative bg-white/30 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 col-span-2" data-aos="zoom-in" data-aos-delay="800">
-        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#00A896]/10 text-[rgb(254,66,0)] mb-4">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M12 11c0-1.105-.895-2-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2h6c1.105 0 2-.895 2-2v-6zM20 8h-6a2 2 0 00-2 2v6c0 1.105.895 2 2 2h6a2 2 0 002-2v-6a2 2 0 00-2-2z"></path>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg text-gray-800 mb-2">Customer-Centric</h3>
-        <p class="text-sm text-gray-600">We personalize every machine and experience to suit your exact business needs.</p>
+      <div class="absolute -right-6 top-1/2 transform -translate-y-1/2">
+        <button (click)="scrollRight()" class="w-10 h-10 rounded-full bg-black text-white text-xl flex items-center justify-center shadow">→</button>
       </div>
     </div>
   </div>
-</section>
+
+  <!-- Pagination Dots -->
+  <div class="mt-12 flex justify-center items-center gap-2">
+    <div class="w-20 h-1 bg-black"></div>
+    <div class="w-20 h-1 bg-gray-300"></div>
+  </div>
+</div>
+
 
   
 
@@ -64,68 +58,175 @@
 
 
 
-<section class="bg-gradient-to-br from-white via-[#fff3ee] to-[#ffe6df] py-24 px-6 md:px-12 lg:px-20 relative overflow-hidden">
-  <!-- Decorative Glows -->
-  <div class="absolute -top-20 -left-20 w-72 h-72 bg-[#e8663b]/20 rounded-full blur-3xl z-0"></div>
-  <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-[#e8663b]/20 rounded-full blur-3xl z-0"></div>
-
-  <div class="relative z-10 max-w-7xl mx-auto text-start mb-16">
-    <h2 class="text-5xl font-extrabold text-[rgb(254,66,0)] mb-4" data-aos="fade-up">🔥 Hot-Selling Machines</h2>
-    <p class="text-lg text-black max-w-3xl " data-aos="fade-up" data-aos-delay="100">
-      Innovation meets quality – explore our most demanded commercial food and beverage equipment.
+<div class="bg-orange-100 py-12 px-4">
+  <div class="text-center mb-16 relative">
+    <h2 class="text-4xl font-black text-orange-800 tracking-wider uppercase relative z-10 
+               before:content-[''] before:absolute before:-bottom-3 before:left-1/2 before:-translate-x-1/2 
+               before:w-24 before:h-1 before:bg-orange-500
+               after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 
+               after:w-12 after:h-1 after:bg-orange-300 after:mt-2">
+      Our Premium Products
+    </h2>
+    <p class="mt-6 text-orange-700 text-lg font-medium max-w-2xl mx-auto">
+      Discover our range of professional kitchen equipment crafted for excellence
     </p>
   </div>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
-
-    <!-- Product Card 1 -->
-    <div class="bg-white/60 border border-[#fae0d7] backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-500" data-aos="zoom-in">
-      <div class="w-full h-64 overflow-hidden">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/318627227/TJ/RG/GA/5413612/softy-ice-cream-machines-table-top-500x500.jpeg" alt="Softy Ice Cream Machine" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#e8663b] mb-2">Softy Ice Cream Machine</h3>
-        <p class="text-sm text-gray-700 mb-4">Efficient, space-saving, and built for top-tier performance.</p>
-        <a href="#details" class="relative inline-block px-6 py-2 text-sm font-semibold text-white bg-[#e8663b] rounded-full overflow-hidden transition-all duration-500 shadow-md hover:text-[#e8663b] group">
-          <span class="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"></span>
-          <span class="relative z-10">View Details</span>
-        </a>
-      </div>
-    </div>
-  
-    <!-- Product Card 2 -->
-    <div class="bg-white/60 border border-[#fae0d7] backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-500" data-aos="zoom-in" data-aos-delay="100">
-      <div class="w-full h-64 overflow-hidden">
-        <img src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-500x500.jpg" alt="Sugarcane Juice Machine" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#e8663b] mb-2">Sugarcane Juice Machine</h3>
-        <p class="text-sm text-gray-700 mb-4">Stainless steel finish with fast extraction and easy cleaning.</p>
-        <a href="#details" class="relative inline-block px-6 py-2 text-sm font-semibold text-white bg-[#e8663b] rounded-full overflow-hidden transition-all duration-500 shadow-md hover:text-[#e8663b] group">
-          <span class="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"></span>
-          <span class="relative z-10">View Details</span>
-        </a>
-      </div>
-    </div>
-  
-    <!-- Product Card 3 -->
-    <div class="bg-white/60 border border-[#fae0d7] backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-500" data-aos="zoom-in" data-aos-delay="200">
-      <div class="w-full h-64 overflow-hidden">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448006135/ES/EK/GR/5413612/tea-coffee-maker-500x500.jpg" alt="Cold Drink Dispenser" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#e8663b] mb-2">Cold Drink Dispenser</h3>
-        <p class="text-sm text-gray-700 mb-4">Cool, compact, and crafted for continuous service.</p>
-        <a href="#details" class="relative inline-block px-6 py-2 text-sm font-semibold text-white bg-[#e8663b] rounded-full overflow-hidden transition-all duration-500 shadow-md hover:text-[#e8663b] group">
-          <span class="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"></span>
-          <span class="relative z-10">View Details</span>
-        </a>
-      </div>
-    </div>
-  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/318627227/TJ/RG/GA/5413612/softy-ice-cream-machines-table-top-250x250.jpeg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
   </div>
-  
-</section>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Ice Cream Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Sugarcane Juice Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+  <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2024/7/431932335/PZ/KP/WC/5413612/popcorn-making-machine-250x250.png" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Popcorn Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="https://5.imimg.com/data5/ANDROID/Default/2024/8/441190372/YX/YM/SS/5413612/prod-20240807-1754183285179887894310040-jpg-250x250.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Hot Beverage Vending Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448018756/KO/HK/WA/5413612/whatsapp-image-2024-08-08-at-19-49-44-07e6beac-250x250.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Sweet Corn Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="milk-shake-machine.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Milk Shake Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="milk-shake-machine.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Milk Shake Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+
+     <div class="relative group bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 rounded-2xl p-6 shadow-[inset_0_0_10px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-2 hover:shadow-orange-300/60 border-t-4 border-white/20">
+  <div class="bg-white p-4 rounded-xl shadow-inner shadow-orange-200">
+    <img src="milk-shake-machine.jpg" alt="Milk Shake Machine"
+         class="w-full h-52 object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1">
+  </div>
+  <h3 class="text-white text-xl font-bold mt-5 text-center tracking-wide uppercase drop-shadow-sm">Milk Shake Machine</h3>
+  <div class="flex justify-center mt-6">
+    <button class="bg-white text-orange-600 font-semibold px-6 py-2 rounded-full flex items-center gap-2 shadow-lg hover:bg-orange-50 hover:shadow-orange-500 transition">
+      <span>Send Inquiry</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+    <!-- Repeat for more products like Softy Vending Machine, Roll Ice Cream Machine -->
+
+  </div>
+</div>
+
 
 
 

@@ -1,164 +1,117 @@
-<header
-  class="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-xl border border-gray-200 bg-white/90 py-4 shadow-md backdrop-blur-md md:top-5 md:rounded-3xl"
-  data-aos="fade-down"
-  data-aos-duration="800"
->
-  <div class="px-6">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <div class="flex items-center" data-aos="fade-right" data-aos-delay="100">
-        <a href="/" class="flex items-center space-x-2">
-          <img
-            class="h-[4.5rem] md:h-14 w-auto"
-            src="assets/Varatta_logo-removebg-preview.png"
-            alt="Logo"
-          />
-        </a>
+<!-- Main Navbar -->
+<nav class="bg-white text-slate-800 w-full top-0 z-40 shadow-md font-['Inter']">
+  <div class="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap">
+    <!-- Branding -->
+    <div class="flex items-center gap-4">
+      <img src="assets\Varatta_logo-removebg-preview.png" alt="Logo" class="h-16 w-auto" />
+      <div>
+        <h1 class="text-[#fe4200] text-[28px] font-extrabold leading-none">Varatta Overseas</h1>
+        <p class="text-slate-500 text-sm">GST: 24ARMPP2217K1ZN</p>
       </div>
+    </div>
 
-      <!-- Hamburger (Mobile) -->
-      <button
-        (click)="toggleMenu()"
-        class="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center space-y-1.5 group"
-      >
-        <span
-          class="block h-0.5 w-6 transform bg-black transition duration-300"
-          [class.rotate-45]="isOpen"
-          [class.translate-y-1.5]="isOpen"
-        ></span>
-        <span
-          class="block h-0.5 w-6 transform bg-black transition duration-300"
-          [class.opacity-0]="isOpen"
-        ></span>
-        <span
-          class="block h-0.5 w-6 transform bg-black transition duration-300"
-          [class.-rotate-45]="isOpen"
-          [class.-translate-y-1.5]="isOpen"
-        ></span>
+    <!-- Right Side -->
+    <div class="flex items-center gap-3 mt-3 lg:mt-0">
+      <div class="bg-[#fe4200] text-white px-4 py-2 rounded-md text-sm font-semibold shadow hidden md:flex">
+        <i class="fas fa-phone-alt mr-2"></i> 08045802696
+      </div>
+      <button class="border border-[#fe4200] text-[#fe4200] font-medium px-3 py-2 rounded-md hover:bg-[#ffe6da] text-sm hidden md:flex items-center gap-2">
+        <a href="contact"><i class="fas fa-envelope"></i> Send Inquiry</a>
       </button>
+      <!-- Mobile Menu Toggle -->
+      <button (click)="toggleMobileMenu()" class="text-[#fe4200] text-2xl lg:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
 
-      <!-- Desktop Navigation -->
-      <nav
-        class="hidden md:flex items-center space-x-6 text-base font-medium text-gray-700"
-        data-aos="fade-down"
-        data-aos-delay="200"
-      >
-        <a
-          href="#"
-          class="relative inline-block px-5 py-2 text-sm font-semibold text-black group overflow-hidden"
-        >
-          <span
-            class="absolute inset-0 bg-[#e8663b] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"
-          ></span>
-          <span class="relative z-10 text-black group-hover:text-white"
-            >Home</span
-          >
-        </a>
-
-        <a
-          href="about"
-          class="relative inline-block px-5 py-2 text-sm font-semibold text-black group overflow-hidden"
-        >
-          <span
-            class="absolute inset-0 bg-[#e8663b] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"
-          ></span>
-          <span class="relative z-10 text-black group-hover:text-white"
-            >About Us</span
-          >
-        </a>
-
-        <a
-          href="service"
-          class="relative inline-block px-5 py-2 text-sm font-semibold text-black group overflow-hidden"
-        >
-          <span
-            class="absolute inset-0 bg-[#e8663b] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"
-          ></span>
-          <span class="relative z-10 text-black group-hover:text-white"
-            >Services</span
-          >
-        </a>
-
-        <a
-          href="#"
-          class="relative inline-block px-5 py-2 text-sm font-semibold text-black group overflow-hidden"
-        >
-          <span
-            class="absolute inset-0 bg-[#e8663b] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"
-          ></span>
-          <span class="relative z-10 text-black group-hover:text-white"
-            >Products</span
-          >
-        </a>
-
-        <a
-          href="contact"
-          class="relative inline-block px-5 py-2 text-sm font-semibold text-black group overflow-hidden"
-        >
-          <span
-            class="absolute inset-0 bg-[#e8663b] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full z-0"
-          ></span>
-          <span class="relative z-10 text-black group-hover:text-white"
-            >Contact</span
-          >
-        </a>
-      </nav>
-
-      <!-- Desktop Buttons -->
-      <div
-        class="hidden md:flex items-center space-x-4"
-        data-aos="fade-left"
-        data-aos-delay="300"
-      >
-        <a
-          href="Brochure/varttaa-overseas.pdf"
-          download
-          class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-xl hover:bg-green-500 transition"
-          >Download Brochure</a
-        >
-      </div>
+  <!-- Desktop Menu -->
+  <div class="hidden lg:flex justify-between items-center px-4 py-3 max-w-screen-xl mx-auto border-t border-slate-200">
+    <ul class="flex gap-8 text-sm font-medium">
+      <li><a href="home" class="hover:text-[#fe4200]">Home</a></li>
+      <li><a href="about" class="hover:text-[#fe4200]">About Us</a></li>
+      <li class="relative group">
+        <a href="#" class="flex items-center gap-1 hover:text-[#fe4200]">Our Products <i class="fas fa-chevron-down text-xs"></i></a>
+        <div class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl p-8 hidden group-hover:flex flex-wrap gap-12 w-[800px] z-50 border border-slate-100">
+          <!-- Mega Menu Content -->
+          <div class="flex-1 min-w-[200px]">
+            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Bakery Machines</h3>
+            <ul class="text-sm space-y-2.5">
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Deck Oven</a></li>
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Egg Roll Machine</a></li>
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Baking Oven</a></li>
+            </ul>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Waffle Makers</h3>
+            <ul class="text-sm space-y-2.5">
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Waffle Cone</a></li>
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Stick Waffle Maker</a></li>
+            </ul>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Pizza Ovens</h3>
+            <ul class="text-sm space-y-2.5">
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Electric Pizza Oven</a></li>
+              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
+          <i class="fas fa-chevron-right text-xs"></i>Double Deck Oven</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="contact" class="hover:text-[#fe4200]">Contact Us</a></li>
+    </ul>
+    <div class="relative">
+      <input type="text" placeholder="Search machines..." class="py-2 px-4 border border-slate-200 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-[#fe4200]" />
+      <button class="absolute right-3 top-2 text-[#fe4200]">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div
-    *ngIf="isOpen"
-    class="md:hidden px-6 pt-4 pb-6 space-y-3 bg-white border-t border-gray-200 shadow animate-fade-in-down w-full overflow-x-hidden"
-  >
-    <a
-      href="#"
-      class="block px-3 py-2 rounded-lg text-base text-gray-800 hover:bg-orange-100"
-      >Home</a
-    >
-    <a
-      href="about"
-      class="block px-3 py-2 rounded-lg text-base text-gray-800 hover:bg-orange-100"
-      >About</a
-    >
-
-    <a
-    href="service"
-    class="block px-3 py-2 rounded-lg text-base text-gray-800 hover:bg-orange-100"
-    >Services</a
-  >
-
-    <a
-      href="#"
-      class="block px-3 py-2 rounded-lg text-base text-gray-800 hover:bg-orange-100"
-      >Products</a
-    >
-    
-
-    <a
-      href="#"
-      class="block w-full text-center px-4 py-2 text-white bg-red-600 rounded-xl hover:bg-red-500 transition"
-      >Contact</a
-    >
-    <a
-      href="Brochure/varttaa-overseas.pdf"
-      download
-      class="block w-full text-center px-4 py-2 text-white bg-green-600 rounded-xl hover:bg-green-500 transition"
-      >Download Brochure</a
-    >
+  <div *ngIf="showMobileMenu" class="lg:hidden px-4 pb-4 space-y-2">
+    <ul class="space-y-3 text-sm font-medium text-slate-700">
+      <li><a href="home" class="block hover:text-[#fe4200]">Home</a></li>
+      <li><a href="about" class="block hover:text-[#fe4200]">About Us</a></li>
+      <li>
+        <button (click)="toggleProductMenu()" class="flex items-center justify-between w-full hover:text-[#fe4200]">
+          Our Products
+          <i class="fas" [ngClass]="{'fa-chevron-down': !showProductMenu, 'fa-chevron-up': showProductMenu}"></i>
+        </button>
+        <ul *ngIf="showProductMenu" class="mt-2 ml-4 space-y-1 text-sm">
+          <li><a href="#" class="block hover:text-[#fe4200]">Deck Oven</a></li>
+          <li><a href="#" class="block hover:text-[#fe4200]">Waffle Maker</a></li>
+          <li><a href="#" class="block hover:text-[#fe4200]">Pizza Oven</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="block hover:text-[#fe4200]">Contact Us</a></li>
+    </ul>
   </div>
-</header>
+</nav>
+
+<!-- Sticky Small Navbar on Scroll -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 ease-in-out"
+     *ngIf="showSmallNavbar">
+  <div class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="assets\Varatta_logo-removebg-preview.png" class="h-16 w-auto" alt="Logo" />
+      <!-- <span class="text-[#fe4200] font-bold text-lg">Varatta Overseas</span> -->
+    </div>
+    <ul class="hidden md:flex gap-6 text-sm font-medium text-slate-700">
+      <li><a href="home" class="hover:text-[#fe4200]">Home</a></li>
+      <li><a href="about" class="hover:text-[#fe4200]">About</a></li>
+      <li><a href="#" class="hover:text-[#fe4200]">Products</a></li>
+      <li><a href="contact" class="hover:text-[#fe4200]">Contact</a></li>
+    </ul>
+    <div class="hidden md:flex items-center gap-2 text-sm text-white bg-[#fe4200] px-3 py-1.5 rounded-md shadow">
+      <i class="fas fa-phone-alt"></i> 08045802696
+    </div>
+  </div>
+</nav>

@@ -3,10 +3,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { NavBarComponent } from "../nav-bar/nav-bar.component";
 import { FooterComponent } from "../footer/footer.component";
+import { HowItsWorksComponent } from "../how-its-works/how-its-works.component";
 
 @Component({
   selector: 'app-about-page',
-  imports: [NavBarComponent, FooterComponent],
+  imports: [NavBarComponent, FooterComponent, HowItsWorksComponent],
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.css'],
   standalone: true

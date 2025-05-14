@@ -1,17 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css'
+  styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  isOpen: boolean = false;
+  showMobileMenu = false;
+  showProductMenu = false;
+  showSmallNavbar = false;
 
-  toggleMenu(): void {
-    this.isOpen = !this.isOpen;
+  toggleMobileMenu() {
+    this.showMobileMenu = !this.showMobileMenu;
+  }
+
+  toggleProductMenu() {
+    this.showProductMenu = !this.showProductMenu;
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY;
+    this.showSmallNavbar = scrollY > 150;
   }
 }

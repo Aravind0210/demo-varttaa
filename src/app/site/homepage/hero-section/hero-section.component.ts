@@ -1,50 +1,38 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
-import gsap from 'gsap';
-import TextPlugin from 'gsap/TextPlugin';
+import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
+import { CommonModule } from '@angular/common';
 import { NavBarComponent } from "../../nav-bar/nav-bar.component";
-
-gsap.registerPlugin(TextPlugin);
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
+  imports: [CommonModule, NavBarComponent],
   templateUrl: './hero-section.component.html',
-  styleUrls: ['./hero-section.component.css'],
-  imports: [NavBarComponent],
+  styleUrls: ['./hero-section.component.css']
 })
-export class HeroSectionComponent implements AfterViewInit {
-  @ViewChild('heroContent', { static: false }) heroContent!: ElementRef;
-  @ViewChild('typingText', { static: false }) typingText!: ElementRef;
+export class HeroSectionComponent implements OnInit {
+  images: string[] = [
+    'https://5.imimg.com/data5/SELLER/Default/2024/7/431979625/JI/OW/EJ/5413612/10-slots-waffle-machine-1-250x250.jpg',
+    'https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg',
+    'https://5.imimg.com/data5/SELLER/Default/2024/9/448006135/ES/EK/GR/5413612/tea-coffee-maker-250x250.jpg'
+  ];
+  currentIndex = 0;
 
-  ngAfterViewInit(): void {
-    new Swiper('.swiper-container', {
-      loop: true, // Enable infinite looping of slides
-      effect: 'fade', // Use fade effect for smooth transition
-      autoplay: {
-        delay: 3000, // Change image every 3 seconds
-      },
-      speed: 1000, // Duration of the transition in ms (1 second)
-      fadeEffect: {
-        crossFade: true, // Crossfade effect between slides
-      }
-    });
+  ngOnInit() {
+    setInterval(() => {
+      this.nextImage();
+    }, 3000);
+        AOS.init({ duration: 1000, once: true });
 
-    gsap.from(this.heroContent.nativeElement, {
-      opacity: 0,
-      y: 50,
-      duration: 1.5,
-      ease: 'power3.out'
-    });
-
-    gsap.to(this.typingText.nativeElement, {
-      duration: 3,
-      text: 'Ice Cream Machines, Softy Makers & Sugarcane Juice Machines.',
-      ease: 'power1.inOut',
-      repeat: -1,
-      repeatDelay: 2,
-      yoyo: true
-    });
   }
+
+  prevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+  }
+
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  
 }

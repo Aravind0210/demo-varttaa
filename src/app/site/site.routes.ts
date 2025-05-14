@@ -32,5 +32,7 @@ export const SiteRoutes: Routes = [
       ),
   },
 
+  
+
   { path: '**', redirectTo: '/home' },
 ];

@@ -1,0 +1,29 @@
+<!-- Sticky Button -->
+<div class="send-enquiry-btn" *ngIf="isButtonVisible" (click)="openModal()">
+  Send Enquiry
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <h2 class="modal-title">📩 Send Enquiry</h2>
+    <form (ngSubmit)="submitEnquiry()" class="modal-form">
+      <label>
+        Name:
+        <input type="text" [(ngModel)]="enquiry.name" name="name" required />
+      </label>
+      <label>
+        Email:
+        <input type="email" [(ngModel)]="enquiry.email" name="email" required />
+      </label>
+      <label>
+        Message:
+        <textarea [(ngModel)]="enquiry.message" name="message" rows="4" required></textarea>
+      </label>
+      <div class="modal-actions">
+        <button type="submit">Send</button>
+        <button type="button" class="cancel-btn" (click)="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
