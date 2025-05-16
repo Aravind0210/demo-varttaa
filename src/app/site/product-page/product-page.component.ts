@@ -18,7 +18,7 @@ export class ProductPageComponent {
     {
       id: 1,
       name: 'Stainless Steel Sugarcane Juicer Machine',
-      image: 'assets/img1.jpg',
+      image: 'https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-500x500.jpg',
     },
     {
       id: 2,
@@ -66,7 +66,7 @@ export class ProductPageComponent {
     {
       id: 9,
       name: 'Belgian Waffle Maker – Electric',
-      image: 'assets/waffle1.jpg',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2023/11/362580297/HZ/MV/TO/31444973/waffle-cone-maker-500x500.jpeg',
     },
     {
       id: 10,

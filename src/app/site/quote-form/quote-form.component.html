@@ -1,0 +1,65 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+  <div class="bg-white w-full max-w-xl rounded-lg p-6 relative">
+    <button (click)="closeForm()" class="absolute top-4 right-4 text-xl">×</button>
+
+    <h2 class="text-xl font-semibold mb-4">Tell us about your requirement</h2>
+
+    <div class="flex items-center bg-red-100 p-3 rounded mb-4">
+      <img [src]="product.images[0]" alt="Product" class="w-16 h-16 rounded mr-4" />
+      <div>
+        <p class="font-semibold">{{ product.title }}</p>
+        <p>Price: {{ product.price }} {{ product.unit }}</p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="font-semibold block mb-1">Quantity</label>
+      <div class="flex gap-2">
+        <input
+          type="number"
+          [(ngModel)]="selectedQuantity"
+          class="border rounded p-2 w-1/2"
+          placeholder="Quantity"
+        />
+        <select
+          [(ngModel)]="selectedUnit"
+          class="border rounded p-2 w-1/2"
+        >
+          <option value="">Select Unit</option>
+          <option value="Unit/Units">Unit/Units</option>
+          <option value="Pieces">Pieces</option>
+          <option value="Boxes">Boxes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="block font-semibold mb-1">Additional Detail</label>
+      <textarea
+        [(ngModel)]="additionalDetail"
+        class="border rounded p-2 w-full"
+        rows="3"
+        placeholder="Additional details"
+      ></textarea>
+    </div>
+
+    <div class="mb-3 flex gap-2">
+      <select class="border rounded p-2">
+        <option value="+91">🇮🇳 +91</option>
+      </select>
+      <input
+        [(ngModel)]="mobileNumber"
+        type="tel"
+        class="border rounded p-2 flex-1"
+        placeholder="Mobile number"
+      />
+    </div>
+
+    <button
+      (click)="submitForm()"
+      class="w-full bg-red-600 text-white font-semibold py-2 rounded hover:bg-red-700"
+    >
+      Submit Now
+    </button>
+  </div>
+</div>

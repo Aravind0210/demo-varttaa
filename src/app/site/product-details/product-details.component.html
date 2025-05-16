@@ -1,69 +1,89 @@
 <app-nav-bar></app-nav-bar>
-<div class="container mx-auto px-4 py-8">
- 
 
-
-  <!-- Product Title -->
-  <h2 class="text-2xl md:text-3xl font-semibold text-gray-800">
-    {{ product.title }}
-  </h2>
-
-  <!-- Price and Quote -->
-  <div class="flex flex-wrap items-center mt-2 mb-4 gap-4">
-    <span class="text-blue-600 text-xl font-bold">
-      ₹{{ product.price | number }} {{ product.unit }}
-    </span>
-    <button class="border border-red-600 text-red-600 px-4 py-1 rounded hover:bg-red-50">
-      {{ product.quoteButtonText }}
-    </button>
+<div class="max-w-7xl mx-auto px-4 py-12">
+  <!-- Title & Price -->
+  <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-10">
+    <h1 class="text-4xl font-bold text-gray-800 leading-tight">
+      {{ product.title }}
+    </h1>
+    <div class="flex items-center gap-4 mt-4 md:mt-0">
+      <span class="text-2xl font-semibold text-orange-600">
+        ₹{{ product.price | number }} {{ product.unit }}
+      </span>
+      <button
+        (click)="showQuoteForm = true"
+        class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition"
+      >
+        Get a Quote
+      </button>
+    </div>
   </div>
 
-  <div class="flex flex-col md:flex-row gap-8">
-    <!-- Left Image Gallery -->
-    <div class="flex flex-col items-center w-full md:w-1/2">
-      <img [src]="selectedImage" alt="Product" class="w-full max-w-sm object-cover rounded shadow-md mb-4" />
-      <div class="flex gap-2 flex-wrap justify-center">
+  <!-- Main Content -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- Image Gallery -->
+    <div>
+      <div class="relative group">
+        <img
+          [src]="selectedImage"
+          alt="Selected"
+          class="w-full h-[350px] object-contain bg-white rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <div class="flex gap-3 mt-5 justify-center md:justify-start flex-wrap">
         <img
           *ngFor="let img of product.images"
           [src]="img"
           (click)="selectImage(img)"
-          class="w-16 h-16 border rounded cursor-pointer hover:border-blue-600"
+          class="w-20 h-20 object-cover rounded-md cursor-pointer border transition hover:ring-2 hover:ring-orange-400"
+          [class.ring-2]="selectedImage === img"
+          [class.ring-orange-500]="selectedImage === img"
         />
       </div>
     </div>
 
-    <!-- Right Product Details -->
-    <div class="w-full md:w-1/2 space-y-4">
-      <h3 class="text-xl font-semibold">Product Details:</h3>
-      <table class="w-full text-sm text-gray-800 border-t border-b">
-        <tr *ngFor="let spec of product.specifications" class="border-b">
-          <td class="py-2 font-medium">{{ spec.label }}</td>
-          <td>{{ spec.value }}</td>
-        </tr>
-      </table>
+    <!-- Product Info -->
+    <div class="space-y-6">
+      <p class="text-gray-700 text-base leading-relaxed">
+        {{ product.description }}
+      </p>
 
-      <a href="#" class="text-blue-600 hover:underline">Click to View more</a>
-
-      <!-- Share buttons placeholder -->
-      <div class="mt-4">
-        <span class="font-medium">Share Your Product:</span>
-        <span class="inline-flex gap-3 ml-2 text-blue-600">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-linkedin"></i>
-        </span>
+      <div class="bg-gray-50 border rounded-lg shadow p-5">
+        <h2 class="text-lg font-semibold mb-3 text-gray-800">Specifications</h2>
+        <table class="w-full text-sm">
+          <tbody>
+            <tr *ngFor="let spec of product.specifications" class="border-b last:border-b-0">
+              <td class="py-2 font-medium text-gray-600 w-1/2">{{ spec.label }}</td>
+              <td class="py-2 text-gray-800">{{ spec.value }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 mt-6">
-        <button class="w-full sm:w-auto px-6 py-3 border border-red-500 text-red-600 rounded hover:bg-red-100 transition">
-          REQUEST TO CALL BACK
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 pt-2">
+        <button
+          class="w-full sm:w-auto px-6 py-2.5 border border-red-500 text-red-600 rounded-md hover:bg-red-50 transition"
+        >
+          Request Call Back
         </button>
-        <button class="w-full sm:w-auto px-6 py-3 bg-red-600 text-white rounded hover:bg-red-700 transition">
-          SEND INQUIRY
+        <button
+          (click)="showQuoteForm = true"
+          class="w-full sm:w-auto px-6 py-2.5 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+        >
+          Send Inquiry
         </button>
       </div>
+
+      <!-- Quote Form -->
+      <app-quote-form
+        *ngIf="showQuoteForm"
+        [product]="product"
+        (close)="closeQuoteForm()"
+      ></app-quote-form>
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
