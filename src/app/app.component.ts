@@ -3,12 +3,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ScrollToTopComponent } from "./site/shared/scroll-to-top/scroll-to-top.component";
-import { SendEnquiryBtnComponent } from "./site/send-enquiry-btn/send-enquiry-btn.component";
+import { SideFormBtnComponent } from "./site/side-form-btn/side-form-btn.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ScrollToTopComponent, SendEnquiryBtnComponent],
+  imports: [CommonModule, RouterOutlet, ScrollToTopComponent,  SideFormBtnComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

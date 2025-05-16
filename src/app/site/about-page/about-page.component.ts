@@ -7,7 +7,7 @@ import { HowItsWorksComponent } from "../how-its-works/how-its-works.component";
 
 @Component({
   selector: 'app-about-page',
-  imports: [NavBarComponent, FooterComponent, HowItsWorksComponent],
+  imports: [NavBarComponent, FooterComponent],
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.css'],
   standalone: true

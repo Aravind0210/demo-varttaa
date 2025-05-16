@@ -25,6 +25,14 @@ export const SiteRoutes: Routes = [
   },
 
   {
+    path: 'product',
+    loadComponent: () =>
+      import('./product-page/product-page.component').then(
+        (m) => m.ProductPageComponent
+      ),
+  },
+
+  {
     path: 'contact',
     loadComponent: () =>
       import('./contact/contact.component').then(

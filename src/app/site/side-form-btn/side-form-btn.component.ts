@@ -1,15 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-@Component({
-  selector: 'app-send-enquiry-btn',
-  standalone: true,
 
-  imports: [CommonModule, FormsModule],
-  templateUrl: './send-enquiry-btn.component.html',
-  styleUrl: './send-enquiry-btn.component.css'
+@Component({
+  selector: 'app-side-form-btn',
+  standalone: true,
+imports: [CommonModule, FormsModule],
+  templateUrl: './side-form-btn.component.html',
+  styleUrl: './side-form-btn.component.css'
 })
-export class SendEnquiryBtnComponent {
+export class SideFormBtnComponent {
 isButtonVisible = false;
   showModal = false;
 
@@ -45,6 +45,7 @@ isButtonVisible = false;
     console.log('Form Submitted:', this.enquiry);
     this.closeModal();
     alert('Enquiry Submitted Successfully!');
-    this.enquiry = { name: '', email: '', message: '' };
-  }
+    this.enquiry = { name: '', email: '', message: '' };
+  }
 }
+

@@ -1,0 +1,123 @@
+<style>
+  /* Custom 3D tilt effect on hover */
+  .tilt-card {
+    perspective: 800px;
+  }
+  .tilt-card-inner {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  .tilt-card:hover .tilt-card-inner {
+    transform: rotateX(10deg) rotateY(10deg);
+  }
+</style>
+
+<section class="w-full px-6 py-12  bg-orange-100">
+  <!-- Section Header -->
+ <div class="mb-12 text-center" data-aos="fade-down" data-aos-duration="800">
+  <h2 class="text-4xl font-black text-orange-800 tracking-wider uppercase relative z-10 
+               before:content-[''] before:absolute before:-bottom-3 before:left-1/2 before:-translate-x-1/2 
+               before:w-24 before:h-1 before:bg-orange-500
+               after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 
+               after:w-12 after:h-1 after:bg-orange-300 after:mt-2">
+    Our Products
+  </h2>
+  <div class="mx-auto mt-2 mb-4 h-1 w-24 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 rounded-full"></div>
+  <p class="mt-6 text-orange-700 text-lg font-medium max-w-2xl mx-auto">
+    Premier exporters & importers of advanced machinery
+  </p>
+</div>
+
+
+
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <!-- Product Card Template -->
+    <div
+      class="tilt-card bg-white rounded-xl shadow-lg p-5 flex flex-col items-center text-center border-2 border-transparent hover:border-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition duration-500 tilt-card cursor-pointer"
+      data-aos="zoom-in"
+      data-aos-delay="100"
+    >
+      <div class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transform transition duration-500 ease-in-out group-hover:scale-110">
+        <img src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg" alt="Popcorn Machine" class="w-full h-full object-cover" />
+      </div>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Popcorn Machine</h3>
+    </div>
+
+    <div
+      class="tilt-card bg-white rounded-xl shadow-lg p-5 flex flex-col items-center text-center border-2 border-transparent hover:border-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition duration-500 tilt-card cursor-pointer"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+    >
+      <div class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transform transition duration-500 ease-in-out group-hover:scale-110">
+        <img src="img2.jpg" alt="Sugarcane Juicer" class="w-full h-full object-cover" />
+      </div>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Sugarcane Juicer</h3>
+    </div>
+
+    <div
+      class="tilt-card bg-white rounded-xl shadow-lg p-5 flex flex-col items-center text-center border-2 border-transparent hover:border-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition duration-500 tilt-card cursor-pointer"
+      data-aos="zoom-in"
+      data-aos-delay="300"
+    >
+      <div class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transform transition duration-500 ease-in-out group-hover:scale-110">
+        <img src="img3.jpg" alt="Waffle Maker" class="w-full h-full object-cover" />
+      </div>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Waffle Maker</h3>
+    </div>
+
+    <div
+      class="tilt-card bg-white rounded-xl shadow-lg p-5 flex flex-col items-center text-center border-2 border-transparent hover:border-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition duration-500 tilt-card cursor-pointer"
+      data-aos="zoom-in"
+      data-aos-delay="400"
+    >
+      <div class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transform transition duration-500 ease-in-out group-hover:scale-110">
+        <img src="img4.jpg" alt="Ice Cream Machine" class="w-full h-full object-cover" />
+      </div>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Ice Cream Machine</h3>
+    </div>
+
+    <div
+      class="tilt-card bg-white rounded-xl shadow-lg p-5 flex flex-col items-center text-center border-2 border-transparent hover:border-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition duration-500 tilt-card cursor-pointer"
+      data-aos="zoom-in"
+      data-aos-delay="500"
+    >
+      <div class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transform transition duration-500 ease-in-out group-hover:scale-110">
+        <img src="img5.jpg" alt="Electric Griller" class="w-full h-full object-cover" />
+      </div>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Electric Griller</h3>
+    </div>
+
+    <!-- View All Products Card -->
+    <a href="#"
+      class="relative group border-4 border-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 flex flex-col justify-center items-center text-center cursor-pointer
+             bg-white shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1"
+      data-aos="fade-up"
+      data-aos-delay="600"
+    >
+      <div class="flex flex-col items-center space-y-4 z-10">
+        <p class="text-2xl font-extrabold text-blue-700 tracking-wide leading-tight select-none">
+          View <br />
+          All <br />
+          Products
+        </p>
+
+        <!-- Eye Icon with circle background -->
+        <div
+          class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center
+                 text-white text-xl shadow-md group-hover:scale-110 transform transition"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Gradient Glow -->
+      <div class="absolute inset-0 rounded-xl opacity-30 bg-gradient-to-r from-orange-400 to-white blur-xl transition group-hover:opacity-50"></div>
+    </a>
+
+  </div>
+</section>
