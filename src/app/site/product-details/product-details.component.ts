@@ -8,6 +8,7 @@ import { QuoteFormComponent } from '../quote-form/quote-form.component';
 interface ProductSpec {
   label: string;
   value: string;
+  type?: 'physical' | 'technical';  // Optional for backward compatibility
 }
 
 interface Product {
@@ -23,7 +24,7 @@ interface Product {
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, FooterComponent, NavBarComponent, QuoteFormComponent],
+  imports: [CommonModule, NavBarComponent, QuoteFormComponent, FooterComponent],
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
@@ -34,48 +35,50 @@ export class ProductDetailsComponent {
   products: Product[] = [
     {
       id: 1,
-      title: 'High-Performance Sugarcane Juicer Machine, Quiet Operation With airpump',
-      price: 475000,
-      unit: 'INR/Unit',
-      description: 'Stainless Steel Sugarcane Juicer Machine',
+      title: 'Sugarcane Juice Machine',
+      price: 32000,
+      unit: 'per piece',
+      description: `This Sugarcane Juice Machine is built for durability, efficiency, and hygiene. It is ideal for juice shops, roadside vendors, and commercial use. The machine operates quickly with minimal effort, producing fresh juice from sugarcane in seconds.`,
       images: [
         'https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-500x500.jpg',
-        'https://5.imimg.com/data5/UM/RO/MY-31444973/sugarcane-juicer-500x500.jpg',
-        'https://5.imimg.com/data5/SELLER/Default/2023/10/351717253/BP/EV/JQ/31444973/sugarcane-juicer-125x125.png'
+        'https://5.imimg.com/data5/SELLER/Default/2023/8/334216041/WN/JM/OG/31444973/mini-sugarcane-juice-machine-500x500.png',
+        'assets/images/products/sugarcane-3.jpg'
       ],
       specifications: [
-        { label: 'Refrigerant', value: '404A' },
-        { label: 'Product Type', value: 'Sugarcane Juicer Machine' },
-        { label: 'Pre-Cooling Pump', value: 'No' },
-        { label: 'Shape', value: 'Other' },
-        { label: 'Power', value: '4600 Watt (w)' },
-        { label: 'Voltage', value: '380 to 440 Volt (v)' },
-        { label: 'Compressor', value: 'Two' }
+        // Physical Specs
+        { label: 'Body Material', value: 'Stainless Steel', type: 'physical' },
+        { label: 'Weight', value: '65 Kg', type: 'physical' },
+        { label: 'Dimensions', value: '24 x 18 x 22 inches', type: 'physical' },
+
+        // Technical Specs
+        { label: 'Motor Power', value: '1.5 HP', type: 'technical' },
+        { label: 'Voltage', value: '220V / 50Hz', type: 'technical' },
+        { label: 'Rollers', value: '3 Roller System', type: 'technical' },
+        { label: 'Juice Output', value: '150 Litres / Hour', type: 'technical' },
+        { label: 'Automation Grade', value: 'Semi-Automatic', type: 'technical' }
       ]
     },
 
-    // Add more products here similar to ProductPageComponent lists
     {
-  id: 9,
-  title: 'Belgian Waffle Maker – Electric',
-  price: 15000,
-  unit: 'INR/Unit',
-  description: 'High-quality Belgian Waffle Maker with electric heating, non-stick plates, and adjustable temperature control.',
-  images: [
-    'https://5.imimg.com/data5/SELLER/Default/2023/11/362580297/HZ/MV/TO/31444973/waffle-cone-maker-500x500.jpeg',
-    'https://5.imimg.com/data5/QD/QU/MY-31444973/waffle-cone-maker-125x125.jpg',
-    'assets/waffle3.jpg'
-  ],
-  specifications: [
-    { label: 'Heating Element', value: 'Electric' },
-    { label: 'Plate Material', value: 'Non-stick coated' },
-    { label: 'Temperature Control', value: 'Adjustable thermostat' },
-    { label: 'Power', value: '1200 Watt (w)' },
-    { label: 'Voltage', value: '220-240 Volt (v)' },
-    { label: 'Weight', value: '2.5 Kg' }
-  ]
-}
-
+      id: 9,
+      title: 'Belgian Waffle Maker – Electric',
+      price: 15000,
+      unit: 'INR/Unit',
+      description: 'High-quality Belgian Waffle Maker with electric heating, non-stick plates, and adjustable temperature control.',
+      images: [
+        'https://5.imimg.com/data5/SELLER/Default/2023/11/362580297/HZ/MV/TO/31444973/waffle-cone-maker-500x500.jpeg',
+        'https://5.imimg.com/data5/QD/QU/MY-31444973/waffle-cone-maker-125x125.jpg',
+        'assets/waffle3.jpg'
+      ],
+      specifications: [
+        { label: 'Heating Element', value: 'Electric', type: 'technical' },
+        { label: 'Plate Material', value: 'Non-stick coated', type: 'physical' },
+        { label: 'Temperature Control', value: 'Adjustable thermostat', type: 'technical' },
+        { label: 'Power', value: '1200 Watt (w)', type: 'technical' },
+        { label: 'Voltage', value: '220-240 Volt (v)', type: 'technical' },
+        { label: 'Weight', value: '2.5 Kg', type: 'physical' }
+      ]
+    }
   ];
 
   product!: Product;
@@ -95,4 +98,9 @@ export class ProductDetailsComponent {
   closeQuoteForm() {
     this.showQuoteForm = false;
   }
+
+  selectedVariant = '';
+submitVariant() {
+  console.log('Selected Variant:', this.selectedVariant);
+}
 }

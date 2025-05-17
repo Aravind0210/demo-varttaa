@@ -1,10 +1,11 @@
 import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-overview-section',
   standalone: true, 
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './overview-section.component.html',
   styleUrls: ['./overview-section.component.css']
 })

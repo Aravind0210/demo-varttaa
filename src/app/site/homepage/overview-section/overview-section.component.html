@@ -5,11 +5,11 @@
   <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
     <!-- Left Content -->
     <div class="md:col-span-1 space-y-6">
-      <h3 class="text-2xl font-bold text-[#132b4e]  leading-snug">
+      <h3 class="text-2xl font-bold text-[#132b4e] leading-snug">
         Highest quality <br> stainless steel solutions
       </h3>
       <p class="text-gray-700">Our range of products available for your kitchen</p>
-      <a href="product" class="text-red-600 flex items-center gap-2 font-semibold">
+      <a routerLink="/product" class="text-red-600 flex items-center gap-2 font-semibold">
         <span class="text-xl">↳</span> VIEW ALL PRODUCTS
       </a>
     </div>
@@ -27,7 +27,7 @@
         >
           <img [src]="product.image" alt="{{product.title}}" class="w-full h-48 object-contain mx-auto" />
           <h3 class="text-lg font-semibold mt-4 text-[#132b4e]">{{ product.title }}</h3>
-          <a href="product" class="text-red-600 flex items-center gap-2 mt-2 font-semibold">
+          <a routerLink="/product" class="text-red-600 flex items-center gap-2 mt-2 font-semibold">
             <span class="text-xl">↳</span> VIEW MORE
           </a>
         </div>
@@ -49,6 +49,7 @@
     <div class="w-20 h-1 bg-gray-300"></div>
   </div>
 </div>
+
 
 
   
@@ -280,7 +281,7 @@
                group-hover:scale-110"
       >
         <img
-          src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg"
+          src="https://5.imimg.com/data5/SELLER/Default/2024/7/431932335/PZ/KP/WC/5413612/popcorn-making-machine-500x500.png"
           alt="Popcorn Machine"
           class="w-full h-full object-cover"
         />
@@ -298,7 +299,7 @@
         class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transition-transform duration-500 ease-in-out 
                group-hover:scale-110"
       >
-        <img src="img2.jpg" alt="Sugarcane Juicer" class="w-full h-full object-cover" />
+        <img src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg" alt="Sugarcane Juicer" class="w-full h-full object-cover" />
       </div>
       <h3 class="mt-4 font-semibold text-lg text-gray-800">Sugarcane Juicer</h3>
     </div>
@@ -313,7 +314,7 @@
         class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transition-transform duration-500 ease-in-out 
                group-hover:scale-110"
       >
-        <img src="img3.jpg" alt="Waffle Maker" class="w-full h-full object-cover" />
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/7/431979625/JI/OW/EJ/5413612/10-slots-waffle-machine-1-250x250.jpg" alt="Waffle Maker" class="w-full h-full object-cover" />
       </div>
       <h3 class="mt-4 font-semibold text-lg text-gray-800">Waffle Maker</h3>
     </div>
@@ -328,7 +329,7 @@
         class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transition-transform duration-500 ease-in-out 
                group-hover:scale-110"
       >
-        <img src="img4.jpg" alt="Ice Cream Machine" class="w-full h-full object-cover" />
+        <img src="https://5.imimg.com/data5/SELLER/Default/2025/3/493703175/WX/QG/UN/5413612/heavy-duty-softy-ice-cream-machine-500x500.jpg" alt="Ice Cream Machine" class="w-full h-full object-cover" />
       </div>
       <h3 class="mt-4 font-semibold text-lg text-gray-800">Ice Cream Machine</h3>
     </div>
@@ -343,14 +344,14 @@
         class="tilt-card-inner w-48 h-48 overflow-hidden rounded-lg shadow-md transition-transform duration-500 ease-in-out 
                group-hover:scale-110"
       >
-        <img src="img5.jpg" alt="Electric Griller" class="w-full h-full object-cover" />
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/7/431988479/JO/SD/SI/5413612/double-deck-pizza-oven-500x500.jpg" alt="Electric Griller" class="w-full h-full object-cover" />
       </div>
-      <h3 class="mt-4 font-semibold text-lg text-gray-800">Electric Griller</h3>
+      <h3 class="mt-4 font-semibold text-lg text-gray-800">Pizza Oven</h3>
     </div>
 
     <!-- View All Products Card -->
-    <a
-      href="#"
+    
+      <a routerLink="/product"
       class="relative group border-4 border-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 flex flex-col justify-center items-center text-center cursor-pointer
              bg-white shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1"
       data-aos="fade-up"

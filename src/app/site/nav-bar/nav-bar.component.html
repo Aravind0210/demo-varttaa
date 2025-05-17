@@ -5,7 +5,7 @@
     <div class="flex items-center gap-4">
       <img src="assets\Varatta_logo-removebg-preview.png" alt="Logo" class="h-16 w-auto" />
       <div>
-        <h1 class="text-[#fe4200] text-[28px] font-extrabold leading-none">Varatta Overseas</h1>
+        <h1 class="text-[#fe4200] text-[28px] font-extrabold leading-none">Varttaa Overseas</h1>
         <p class="text-slate-500 text-sm">GST: 33AMIPP1269J2ZT</p>
       </div>
     </div>
@@ -28,44 +28,11 @@
   <!-- Desktop Menu -->
   <div class="hidden lg:flex justify-between items-center px-4 py-3 max-w-screen-xl mx-auto border-t border-slate-200">
     <ul class="flex gap-8 text-base font-medium">
-      <li><a href="home" class="hover:text-[#fe4200]">Home</a></li>
-      <li><a href="about" class="hover:text-[#fe4200]">About Us</a></li>
-      <li class="relative group bottom-2">
-        <a href="product" class="flex items-center gap-1 hover:text-[#fe4200]">Our Products <i class="fas fa-chevron-down text-xs"></i></a>
-        <div class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-2xl p-8 hidden group-hover:flex flex-wrap gap-12 w-[800px] z-50 border border-slate-100">
-          <!-- Mega Menu Content -->
-          <div class="flex-1 min-w-[200px]">
-            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Bakery Machines</h3>
-            <ul class="text-sm space-y-2.5">
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Deck Oven</a></li>
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Egg Roll Machine</a></li>
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Baking Oven</a></li>
-            </ul>
-          </div>
-          <div class="flex-1 min-w-[200px]">
-            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Waffle Makers</h3>
-            <ul class="text-sm space-y-2.5">
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Waffle Cone</a></li>
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Stick Waffle Maker</a></li>
-            </ul>
-          </div>
-          <div class="flex-1 min-w-[200px]">
-            <h3 class="text-[#fe4200] font-bold mb-4 text-base">Pizza Ovens</h3>
-            <ul class="text-sm space-y-2.5">
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Electric Pizza Oven</a></li>
-              <li><a href="#" class="hover:text-[#fe4200] transition-colors duration-200 flex items-center gap-2">
-          <i class="fas fa-chevron-right text-xs"></i>Double Deck Oven</a></li>
-            </ul>
-          </div>
-        </div>
-      </li>
-      <li><a href="contact" class="hover:text-[#fe4200]">Contact Us</a></li>
+      <li><a routerLink="/home" class="hover:text-[#fe4200]">Home</a></li>
+      <li><a routerLink="/about" class="hover:text-[#fe4200]">About Us</a></li>
+      <li><a routerLink="/product" class="hover:text-[#fe4200]">Our Products</a></li>
+
+      <li><a routerLink="/contact" class="hover:text-[#fe4200]">Contact Us</a></li>
     </ul>
     <div class="relative">
       <input type="text" placeholder="Search machines..." class="py-2 px-4 border border-slate-200 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-[#fe4200]" />
@@ -78,20 +45,21 @@
   <!-- Mobile Menu -->
   <div *ngIf="showMobileMenu" class="lg:hidden px-4 pb-4 space-y-2">
     <ul class="space-y-3 text-sm font-medium text-slate-700">
-      <li><a href="home" class="block hover:text-[#fe4200]">Home</a></li>
-      <li><a href="about" class="block hover:text-[#fe4200]">About Us</a></li>
-      <li>
+      <li><a routerLink="/home" class="block hover:text-[#fe4200]">Home</a></li>
+      <li><a routerLink="/about" class="block hover:text-[#fe4200]">About Us</a></li>
+      <li><a routerLink="/product" class="block hover:text-[#fe4200]">Our Products</a></li>
+      <!-- <li>
         <button (click)="toggleProductMenu()" class="flex items-center justify-between w-full hover:text-[#fe4200]">
           Our Products
           <i class="fas" [ngClass]="{'fa-chevron-down': !showProductMenu, 'fa-chevron-up': showProductMenu}"></i>
         </button>
         <ul *ngIf="showProductMenu" class="mt-2 ml-4 space-y-1 text-sm">
-          <li><a href="#" class="block hover:text-[#fe4200]">Deck Oven</a></li>
+          <li><a routerlink="/home" class="block hover:text-[#fe4200]">Deck Oven</a></li>
           <li><a href="#" class="block hover:text-[#fe4200]">Waffle Maker</a></li>
           <li><a href="#" class="block hover:text-[#fe4200]">Pizza Oven</a></li>
         </ul>
-      </li>
-      <li><a href="#" class="block hover:text-[#fe4200]">Contact Us</a></li>
+      </li> -->
+      <li><a routerLink="/contact" class="block hover:text-[#fe4200]">Contact Us</a></li>
     </ul>
   </div>
 </nav>
@@ -105,10 +73,10 @@
       <!-- <span class="text-[#fe4200] font-bold text-lg">Varatta Overseas</span> -->
     </div>
     <ul class="hidden md:flex gap-6 text-sm font-medium text-slate-700">
-      <li><a href="home" class="hover:text-[#fe4200]">Home</a></li>
-      <li><a href="about" class="hover:text-[#fe4200]">About</a></li>
-      <li><a href="#" class="hover:text-[#fe4200]">Products</a></li>
-      <li><a href="contact" class="hover:text-[#fe4200]">Contact</a></li>
+      <li><a routerLink="/home" class="hover:text-[#fe4200]">Home</a></li>
+      <li><a routerLink="/about" class="hover:text-[#fe4200]">About</a></li>
+      <li><a routerLink="/product" class="hover:text-[#fe4200]">Products</a></li>
+      <li><a routerLink="/contact" class="hover:text-[#fe4200]">Contact</a></li>
     </ul>
     <div class="hidden md:flex items-center gap-2 text-sm text-white bg-[#fe4200] px-3 py-1.5 rounded-md shadow">
       <i class="fas fa-phone-alt"></i> 08045802696
