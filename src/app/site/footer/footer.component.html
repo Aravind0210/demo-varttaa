@@ -1,71 +1,133 @@
-<footer class="relative bg-black bg-opacity-90 backdrop-blur-md text-white py-12 px-6">
-  <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
+<footer
+  class="relative bg-black bg-opacity-90 backdrop-blur-md text-white py-10 px-4 sm:px-6"
+>
+  <div
+    class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+  >
     <!-- Brand Section -->
     <div>
-      <img src="assets/footer_img.jpg " alt="Varatta Logo" class="h-14 w-auto mb-4 rounded shadow-md" />
+      <img
+        src="assets/footer_img.jpg"
+        alt="Varatta Logo"
+        class="h-16 w-auto mb-4 rounded shadow-md"
+      />
       <p class="text-sm text-gray-300 leading-relaxed mb-4">
-        Since 2012, Varttaa Overseas has been delivering top-quality Ice Cream Machines, Pizza Ovens, and Softy Makers across India.
+        Since 2012, Varttaa Overseas has been delivering top-quality Ice Cream
+        Machines, Pizza Ovens, and Softy Makers across India.
       </p>
-      <video controls class="w-full rounded-xl border border-gray-600 shadow-lg">
+      <video
+        controls
+        class="w-full rounded-xl border border-gray-600 shadow-lg h-40 sm:h-52 lg:h-auto object-cover"
+      >
         <source src="assets/company-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
 
     <!-- Explore Links -->
-    <div class="bg-white bg-opacity-5 rounded-lg p-5 backdrop-blur-md shadow-lg">
-      <h4 class="text-lg font-bold text-[#ff4200] mb-4">Explore</h4>
-      <ul class="space-y-3   text-gray-300" style="font-size: 1rem; line-height: 2rem;" >
-        <li><a routerLink="/home" class="hover:text-[#ff4200] transition">Home</a></li>
-        <li><a routerLink="/about" class="hover:text-[#ff4200] transition">About Us</a></li>
-        <li><a routerLink="/product" class="hover:text-[#ff4200] transition">Products</a></li>
-        <li><a routerLink="/contact" class="hover:text-[#ff4200] transition">Contact</a></li>
+    <div
+      class="bg-white bg-opacity-5 rounded-lg p-4 sm:p-5 backdrop-blur-md shadow-lg"
+    >
+      <h4 class="text-base sm:text-lg font-bold text-[#ff4200] mb-4">
+        Explore
+      </h4>
+      <ul class="space-y-2 text-sm sm:text-base text-gray-300">
+        <li>
+          <a routerLink="/home" class="hover:text-[#ff4200] transition">Home</a>
+        </li>
+        <li>
+          <a routerLink="/about" class="hover:text-[#ff4200] transition"
+            >About Us</a
+          >
+        </li>
+        <li>
+          <a routerLink="/product" class="hover:text-[#ff4200] transition"
+            >Products</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-[#ff4200] transition"
+            >Contact</a
+          >
+        </li>
       </ul>
     </div>
 
     <!-- Contact Info -->
-    <div class="bg-white bg-opacity-5 rounded-lg p-5 backdrop-blur-md shadow-lg">
-      <h4 class="text-lg font-bold text-[#ff4200] mb-4">Contact</h4>
-      <ul class="space-y-3  text-gray-300" style="font-size: 1rem; line-height: 2rem;">
+    <div
+      class="bg-white bg-opacity-5 rounded-lg p-4 sm:p-5 backdrop-blur-md shadow-lg"
+    >
+      <h4 class="text-base sm:text-lg font-bold text-[#ff4200] mb-4">
+        Contact
+      </h4>
+      <ul class="space-y-3 text-sm sm:text-base text-gray-300">
         <li class="flex justify-between items-center">
           📞 +91 90426 64066
-          <button (click)="copyToClipboard('+91 90426 64066')" class="text-[#ff4200] hover:text-white">
-            <i class="fas fa-copy"></i>
-          </button>
+          <div class="flex items-center gap-2">
+            <button
+              (click)="copyToClipboard('+91 90426 64066')"
+              class="text-[#ff4200] hover:text-white text-base"
+            >
+              <i class="fas fa-copy"></i>
+            </button>
+            <span
+              *ngIf="copied"
+              class="text-green-600 text-sm font-medium animate-pulse"
+              >Copied</span
+            >
+          </div>
         </li>
         <li class="flex justify-between items-center">
-          📧 varattagmail.com
-          <button (click)="copyToClipboard('varattagmail.com')" class="text-[#ff4200] hover:text-white">
+          📧 varttaa&#64;gmail.com
+          <button
+            (click)="copyToClipboard('varttaa@gmail.com')"
+            class="text-[#ff4200] hover:text-white text-base"
+          >
             <i class="fas fa-copy"></i>
           </button>
+          
         </li>
         <li class="text-gray-400 leading-snug">
           📍 163, K.A.S Park Nagar,<br />
           Narasothipatti, Salem,<br />
-          Tamil Nadu 636004
+          Tamil Nadu 636004.
         </li>
       </ul>
     </div>
 
     <!-- Social Media -->
-    <div class="bg-white bg-opacity-5 rounded-lg p-5 backdrop-blur-md shadow-lg">
-      <h4 class="text-lg font-bold text-[#ff4200] mb-4">Follow Us</h4>
-      <div class="flex items-center space-x-4 text-2xl text-gray-400">
-        <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="hover:text-sky-400 transition"><i class="fab fa-twitter"></i></a>
+    <div
+      class="bg-white bg-opacity-5 rounded-lg p-4 sm:p-5 backdrop-blur-md shadow-lg"
+    >
+      <h4 class="text-base sm:text-lg font-bold text-[#ff4200] mb-4">
+        Follow Us
+      </h4>
+      <div
+        class="flex items-center space-x-4 text-xl sm:text-2xl text-gray-400"
+      >
+        <a href="#" class="hover:text-blue-500 transition"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="#" class="hover:text-pink-500 transition"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="#" class="hover:text-blue-400 transition"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="#" class="hover:text-sky-400 transition"
+          ><i class="fab fa-twitter"></i
+        ></a>
       </div>
       <p class="mt-4 text-xs text-gray-500">
         Follow us for updates, offers, and new launches.
       </p>
     </div>
-
   </div>
 
   <!-- Footer Bottom -->
-  <div class="mt-12 text-center text-xs text-gray-400 border-t border-gray-800 pt-5">
+  <div
+    class="mt-10 text-center text-xs text-gray-400 border-t border-gray-800 pt-5"
+  >
     &copy; 2025 Varatta Overseas. All Rights Reserved.
   </div>
 </footer>

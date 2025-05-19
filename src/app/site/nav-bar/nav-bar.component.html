@@ -1,41 +1,69 @@
 <!-- Main Navbar -->
 <nav class="bg-white text-slate-800 w-full top-0 z-40 shadow-md font-['Inter']">
-  <div class="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap">
+  <div
+    class="max-w-screen-xl mx-auto px-4 py-4 flex items-center justify-between flex-wrap"
+  >
     <!-- Branding -->
-    <div class="flex items-center gap-4">
-      <img src="assets\Varatta_logo-removebg-preview.png" alt="Logo" class="h-16 w-auto" />
-      <div>
-        <h1 class="text-[#fe4200] text-[28px] font-extrabold leading-none">Varttaa Overseas</h1>
-        <p class="text-slate-500 text-sm">GST: 33AMIPP1269J2ZT</p>
+    <div class="flex items-center gap-3 sm:gap-4">
+      <img
+        src="assets/Varatta_logo-removebg-preview.png"
+        alt="Logo"
+        class="h-12 w-auto sm:h-16"
+      />
+      <div class="leading-tight">
+        <h1
+          class="text-[#fe4200] text-lg sm:text-2xl font-extrabold tracking-wide"
+        >
+          Varttaa <span class="text-slate-900">Overseas</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          GST No: <span class="text-slate-700">33AMIPP1269J2ZT</span>
+        </p>
       </div>
     </div>
 
     <!-- Right Side -->
-    <div class="flex items-center gap-3 mt-3 lg:mt-0">
-      <div class="bg-[#fe4200] text-white px-4 py-2 rounded-md text-sm font-semibold shadow hidden md:flex">
-        <i class="fas fa-phone-alt mr-2"></i> 08045802696
-      </div>
-      <button class="border border-[#fe4200] text-[#fe4200] font-medium px-3 py-2 rounded-md hover:bg-[#ffe6da] text-sm hidden md:flex items-center gap-2">
+    <div class="flex items-center gap-3 mt-4 sm:mt-0">
+      <div class="bg-[#fe4200] text-white px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-semibold shadow hidden md:flex items-center gap-2">
+  <i class="fa-solid fa-phone text-white"></i>
+  <span>090426 64066</span>
+</div>
+
+      <button
+        class="border border-[#fe4200] text-[#fe4200] font-medium px-3 py-2 rounded-md hover:bg-[#ffe6da] text-xs sm:text-sm hidden md:flex items-center gap-2"
+      >
         <a href="contact"><i class="fas fa-envelope"></i> Send Inquiry</a>
       </button>
       <!-- Mobile Menu Toggle -->
-      <button (click)="toggleMobileMenu()" class="text-[#fe4200] text-2xl lg:hidden">
+      <button
+        (click)="toggleMobileMenu()"
+        class="text-[#fe4200] text-2xl lg:hidden"
+      >
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </div>
 
   <!-- Desktop Menu -->
-  <div class="hidden lg:flex justify-between items-center px-4 py-3 max-w-screen-xl mx-auto border-t border-slate-200">
-    <ul class="flex gap-8 text-base font-medium">
+  <div
+    class="hidden lg:flex justify-between items-center px-4 py-3 max-w-screen-xl mx-auto border-t border-slate-200"
+  >
+    <ul class="flex gap-6 text-sm sm:text-base font-medium">
       <li><a routerLink="/home" class="hover:text-[#fe4200]">Home</a></li>
       <li><a routerLink="/about" class="hover:text-[#fe4200]">About Us</a></li>
-      <li><a routerLink="/product" class="hover:text-[#fe4200]">Our Products</a></li>
-
-      <li><a routerLink="/contact" class="hover:text-[#fe4200]">Contact Us</a></li>
+      <li>
+        <a routerLink="/product" class="hover:text-[#fe4200]">Our Products</a>
+      </li>
+      <li>
+        <a routerLink="/contact" class="hover:text-[#fe4200]">Contact Us</a>
+      </li>
     </ul>
-    <div class="relative">
-      <input type="text" placeholder="Search machines..." class="py-2 px-4 border border-slate-200 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-[#fe4200]" />
+    <div class="relative mt-3 lg:mt-0">
+      <input
+        type="text"
+        placeholder="Search machines..."
+        class="py-2 px-4 border border-slate-200 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-[#fe4200]"
+      />
       <button class="absolute right-3 top-2 text-[#fe4200]">
         <i class="fas fa-search"></i>
       </button>
@@ -46,40 +74,64 @@
   <div *ngIf="showMobileMenu" class="lg:hidden px-4 pb-4 space-y-2">
     <ul class="space-y-3 text-sm font-medium text-slate-700">
       <li><a routerLink="/home" class="block hover:text-[#fe4200]">Home</a></li>
-      <li><a routerLink="/about" class="block hover:text-[#fe4200]">About Us</a></li>
-      <li><a routerLink="/product" class="block hover:text-[#fe4200]">Our Products</a></li>
-      <!-- <li>
-        <button (click)="toggleProductMenu()" class="flex items-center justify-between w-full hover:text-[#fe4200]">
-          Our Products
-          <i class="fas" [ngClass]="{'fa-chevron-down': !showProductMenu, 'fa-chevron-up': showProductMenu}"></i>
-        </button>
-        <ul *ngIf="showProductMenu" class="mt-2 ml-4 space-y-1 text-sm">
-          <li><a routerlink="/home" class="block hover:text-[#fe4200]">Deck Oven</a></li>
-          <li><a href="#" class="block hover:text-[#fe4200]">Waffle Maker</a></li>
-          <li><a href="#" class="block hover:text-[#fe4200]">Pizza Oven</a></li>
-        </ul>
-      </li> -->
-      <li><a routerLink="/contact" class="block hover:text-[#fe4200]">Contact Us</a></li>
+      <li>
+        <a routerLink="/about" class="block hover:text-[#fe4200]">About Us</a>
+      </li>
+      <li>
+        <a routerLink="/product" class="block hover:text-[#fe4200]"
+          >Our Products</a
+        >
+      </li>
+      <li>
+        <a routerLink="/contact" class="block hover:text-[#fe4200]"
+          >Contact Us</a
+        >
+      </li>
     </ul>
+    <div
+      class="mt-3 bg-[#fe4200] text-white px-4 py-2 rounded-md text-sm font-semibold shadow flex items-center justify-center"
+    >
+<div class="flex md:hidden items-center gap-2 bg-[#fe4200] text-white px-3 py-2 rounded-md text-sm font-semibold shadow">
+  <i class="fa-solid fa-phone text-white"></i>
+  <span>090426 64066</span>
+</div>
+    </div>
+    <a
+      href="contact"
+      class="block text-center border border-[#fe4200] text-[#fe4200] font-medium px-4 py-2 rounded-md hover:bg-[#ffe6da] mt-2 text-sm"
+    >
+      <i class="fas fa-envelope mr-2"></i> Send Inquiry
+    </a>
   </div>
 </nav>
 
-<!-- Sticky Small Navbar on Scroll -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 ease-in-out"
-     *ngIf="showSmallNavbar">
-  <div class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
+<nav
+  class="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 ease-in-out"
+  *ngIf="showSmallNavbar"
+>
+  <div
+    class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between"
+  >
     <div class="flex items-center gap-3">
-      <img src="assets\Varatta_logo-removebg-preview.png" class="h-16 w-auto" alt="Logo" />
+      <img
+        src="assets\Varatta_logo-removebg-preview.png"
+        class="h-16 w-auto"
+        alt="Logo"
+      />
       <!-- <span class="text-[#fe4200] font-bold text-lg">Varatta Overseas</span> -->
     </div>
     <ul class="hidden md:flex gap-6 text-sm font-medium text-slate-700">
       <li><a routerLink="/home" class="hover:text-[#fe4200]">Home</a></li>
       <li><a routerLink="/about" class="hover:text-[#fe4200]">About</a></li>
-      <li><a routerLink="/product" class="hover:text-[#fe4200]">Products</a></li>
+      <li>
+        <a routerLink="/product" class="hover:text-[#fe4200]">Products</a>
+      </li>
       <li><a routerLink="/contact" class="hover:text-[#fe4200]">Contact</a></li>
     </ul>
-    <div class="hidden md:flex items-center gap-2 text-sm text-white bg-[#fe4200] px-3 py-1.5 rounded-md shadow">
-      <i class="fas fa-phone-alt"></i> 08045802696
+    <div
+      class="hidden md:flex items-center gap-2 text-sm text-white bg-[#fe4200] px-3 py-1.5 rounded-md shadow"
+    >
+      <i class="fa-solid fa-phone" style="color: #ffffff;"></i> 090426 64066
     </div>
   </div>
 </nav>

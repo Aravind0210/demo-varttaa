@@ -3,24 +3,28 @@
 <app-side-form-btn></app-side-form-btn>
 <div
   *ngIf="showWhatsAppButton"
-  class="fixed bottom-14 right-4 sm:bottom-[4.5rem] sm:right-4 flex flex-col items-end gap-2 z-40"
+  class="fixed bottom-14 right-4 sm:bottom-[4.5rem] sm:right-4 flex flex-col items-end gap-1 sm:gap-2 z-40"
+  style="max-width: 90vw;" 
 >
   <div
     class="opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-in-out 
-            text-white font-semibold px-3 py-2 rounded-lg shadow-md text-sm 
-            group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
-            bg-orange-500 w-max m-4"
+           text-white font-semibold px-3 py-1.5 rounded-lg shadow-md text-xs sm:text-sm 
+           group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
+           bg-orange-500 w-max max-w-[200px] m-2 sm:m-4 break-words"
   >
     Hello! How can I help you? 👋
   </div>
 
   <a
-    href="https://wa.me/+918220895546"
-    target="_blank"
-    class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-green-500 text-white rounded-full shadow-lg 
-           hover:scale-110 transition-transform animate-bounce z-50"
-  >
-    <i class="fab fa-whatsapp text-3xl sm:text-4xl"></i>
-  </a>
+  href="https://wa.me/919042664066"
+  target="_blank"
+  class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-green-500 text-white rounded-full shadow-lg 
+         hover:scale-110 transition-transform animate-bounce z-50"
+  aria-label="WhatsApp Chat"
+>
+  <i class="fab fa-whatsapp text-2xl sm:text-3xl md:text-4xl"></i>
+</a>
+  
 </div>
+
 
