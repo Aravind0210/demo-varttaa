@@ -15,11 +15,15 @@ import { SideFormBtnComponent } from "./site/side-form-btn/side-form-btn.compone
 export class AppComponent {
   title = 'demo-varatta';
   showWhatsAppButton = true;  // Always show the button
+  isadminRoute = false;  // Default value
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);  // Reset scroll position on navigation
+        this.isadminRoute = event.urlAfterRedirects.startsWith('/admin');
+        // Hide WhatsApp button on admin routes
+        this.showWhatsAppButton = !this.isadminRoute;
       }
     });
   }
