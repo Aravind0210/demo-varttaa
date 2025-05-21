@@ -1,1 +1,82 @@
-<p>manage-product works!</p>
+<div class="product-management-container p-4">
+  <h2 class="text-xl font-semibold mb-4 text-center border-b pb-2">
+    Product Management
+  </h2>
+
+  <!-- Search Section -->
+  <div class="flex flex-wrap justify-center gap-2 mb-6">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by name or category"
+      class="border rounded px-3 py-2 w-64"
+    />
+    <button
+      class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
+      (click)="onSearch()"
+    >
+      🔍 Search
+    </button>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-auto">
+    <table class="min-w-full border text-left">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 border">Sl. No.</th>
+          <th class="px-4 py-2 border">Name</th>
+          <th class="px-4 py-2 border">Category</th>
+          <th class="px-4 py-2 border">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let product of filteredProducts; let i = index"
+          class="hover:bg-gray-50 transition"
+        >
+          <td class="px-4 py-2 border">
+            {{ (currentPage - 1) * itemsPerPage + i + 1 }}
+          </td>
+          <td class="px-4 py-2 border">{{ product.name }}</td>
+          <td class="px-4 py-2 border">{{ product.category }}</td>
+          <td class="px-4 py-2 border">
+            <button
+              class="text-blue-600 hover:underline mr-3"
+              (click)="onEdit(product)"
+            >
+              ✏️ Edit
+            </button>
+            <button
+              class="text-red-600 hover:underline"
+              (click)="onDelete(product.id)"
+            >
+              🗑️ Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="filteredProducts.length === 0">
+          <td colspan="4" class="text-center py-4 text-gray-500">
+            No products found.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex justify-center items-center mt-6 space-x-2">
+    <button
+      *ngFor="let page of pages"
+      (click)="changePage(page)"
+      [ngClass]="{
+        'bg-orange-500 text-white': currentPage === page,
+        'bg-gray-200': currentPage !== page
+      }"
+      class="px-3 py-1 rounded"
+    >
+      {{ page }}
+    </button>
+    <span class="text-gray-600 cursor-pointer" (click)="nextPage()">›</span>
+  </div>
+</div>
