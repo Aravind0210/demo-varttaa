@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from "../../nav-bar/nav-bar.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
@@ -17,22 +18,25 @@ export class HeroSectionComponent implements OnInit {
     'https://5.imimg.com/data5/SELLER/Default/2024/9/448006135/ES/EK/GR/5413612/tea-coffee-maker-250x250.jpg'
   ];
   currentIndex = 0;
+  isImageVisible = true;
 
   ngOnInit() {
-    setInterval(() => {
-      this.nextImage();
-    }, 3000);
-        AOS.init({ duration: 1000, once: true });
+  AOS.init({ duration: 1000, once: true });
 
-  }
+  setInterval(() => {
+    this.fadeOutIn(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    });
+  }, 5000); // change every 5 seconds
+}
 
-  prevImage() {
-    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-  }
-
-  nextImage() {
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-  }
 
   
+  fadeOutIn(changeImageCallback: () => void) {
+    this.isImageVisible = false;
+    setTimeout(() => {
+      changeImageCallback();
+      this.isImageVisible = true;
+    }, 500); // matches half of CSS transition duration
+  }
 }
