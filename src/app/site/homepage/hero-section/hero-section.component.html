@@ -1,23 +1,66 @@
 <app-nav-bar></app-nav-bar>
 
+<section class="flex flex-col md:flex-row h-screen overflow-hidden bg-orange-100">
+  <!-- Left Carousel -->
+  <div class="md:w-1/2 w-full relative overflow-hidden" data-aos="fade-right">
+    <div #carouselImages class="flex transition-transform duration-700 ease-in-out h-full">
+      <img src="https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-500x500.jpg"
+           class="shrink-0 w-full h-full object-contain" alt="Sugarcane Machine" />
+      <img src="https://5.imimg.com/data5/ANDROID/Default/2024/6/423994212/NJ/FZ/OD/5413612/product-jpeg-500x500.jpg"
+           class="shrink-0 w-full h-full object-contain" alt="Chocolate Fountain" />
+      <img src="https://5.imimg.com/data5/SELLER/Default/2024/9/448000102/IO/GB/DE/5413612/traditional-coffee-maker-500x500.jpeg"
+           class="shrink-0 w-full h-full object-contain" alt="Egg Roll Machine" />
+    </div>
+    <!-- Dots -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10" data-aos="zoom-in-up">
+      <span class="w-3 h-3 bg-orange-300 rounded-full cursor-pointer" (click)="goToSlide(0)"></span>
+      <span class="w-3 h-3 bg-orange-300 rounded-full cursor-pointer" (click)="goToSlide(1)"></span>
+      <span class="w-3 h-3 bg-orange-300 rounded-full cursor-pointer" (click)="goToSlide(2)"></span>
+    </div>
+  </div>
 
-<section
-  id="hero"
-  class="relative w-full h-[400px] md:h-[500px] overflow-hidden text-white"
->
-  <div
-    class="absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out bg-center bg-contain scale-animation"
-    [ngStyle]="{ 'background-image': 'url(' + images[currentIndex] + ')', 'opacity': isImageVisible ? '1' : '0' }"
-  ></div>
+  <!-- Right Section -->
+  <div class="md:w-1/2 w-full bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 text-gray-800 flex flex-col justify-evenly p-6 sm:p-8">
 
-  <div class="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0"></div>
+    <!-- Rotating Product Info -->
+    <div class="overflow-hidden mb-6" data-aos="fade-up" data-aos-delay="200">
+      <div #carouselText class="flex transition-transform duration-700 ease-in-out">
+        <!-- Slide 1 -->
+        <div class="shrink-0 w-full space-y-3">
+          <h1 class="text-3xl md:text-4xl font-semibold leading-tight">Sugarcane Juice <span class="text-orange-600">Machine</span></h1>
+          <p class="text-base md:text-lg text-gray-700">₹ 26,000 / Piece</p>
+          <button class="bg-orange-400 text-white px-5 py-2 rounded hover:bg-orange-500 transition">Get Best Quote</button>
+        </div>
+        <!-- Slide 2 -->
+        <div class="shrink-0 w-full space-y-3">
+          <h1 class="text-3xl md:text-4xl font-semibold leading-tight">Ice Creame <span class="text-orange-600">Machine</span></h1>
+          <p class="text-base md:text-lg text-gray-700">₹ 1,20,000 / Piece</p>
+          <button class="bg-orange-400 text-white px-5 py-2 rounded hover:bg-orange-500 transition">Get Best Quote</button>
+        </div>
+        <!-- Slide 3 -->
+        <div class="shrink-0 w-full space-y-3">
+          <h1 class="text-3xl md:text-4xl font-semibold leading-tight">Gemini Tea <span class="text-orange-600">Coffee Maker</span></h1>
+          <p class="text-base md:text-lg text-gray-700">₹ 11,250 / Piece</p>
+          <button class="bg-orange-400 text-white px-5 py-2 rounded hover:bg-orange-500 transition">Get Best Quote</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto h-full">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-3 animate-fade-in">
-      Varttaa Overseas
-    </h1>
-    <p class="text-lg md:text-2xl font-medium animate-fade-in delay-200">
-      Leading Exporter & Importer of Quality Machinery from India
-    </p>
+    <!-- About Company -->
+    <div class="bg-white/70 backdrop-blur-sm p-5 sm:p-6 rounded-lg shadow-lg" data-aos="flip-up" data-aos-delay="400">
+      <h2 class="text-lg sm:text-xl font-bold border-l-4 border-orange-400 pl-4 mb-4">About Company</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700" data-aos="fade-right" data-aos-delay="600">
+        <div>🧑‍💼 <strong>Business Type:</strong><br>Exporter / Importer</div>
+        <div>📆 <strong>Established:</strong><br>01-04-2012</div>
+        <div>📊 <strong>Annual Turnover:</strong><br>₹ 30 - 40 lacs</div>
+        <div>⚖️ <strong>Legal Status:</strong><br>Private Limited Company</div>
+        <div>🔢 <strong>GST No.:</strong><br>33AMIPP1269J2ZT</div>
+      </div>
+      <p class="mt-4 text-sm text-gray-800 leading-relaxed" data-aos="fade-up" data-aos-delay="800">
+        <strong>Varttaa Overseas</strong> is a trusted name in machine exports and imports, delivering reliable solutions such as
+        <strong>Ice Cream Machines, Pizza Ovens, Chapati Makers</strong>, and more.
+        <a routerLink="/about" class="underline text-orange-500 hover:text-orange-600">Read More</a>
+      </p>
+    </div>
   </div>
 </section>

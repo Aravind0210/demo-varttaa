@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from "../../nav-bar/nav-bar.component";
@@ -7,36 +7,31 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule, NavBarComponent],
+  imports: [CommonModule, NavBarComponent,RouterLink],
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.css']
 })
-export class HeroSectionComponent implements OnInit {
-  images: string[] = [
-    'https://5.imimg.com/data5/SELLER/Default/2024/7/431979625/JI/OW/EJ/5413612/10-slots-waffle-machine-1-250x250.jpg',
-    'https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-250x250.jpg',
-    'https://5.imimg.com/data5/SELLER/Default/2024/9/448006135/ES/EK/GR/5413612/tea-coffee-maker-250x250.jpg'
-  ];
-  currentIndex = 0;
-  isImageVisible = true;
+export class HeroSectionComponent implements AfterViewInit {
+  index = 0;
+  totalSlides = 3;
 
-  ngOnInit() {
-  AOS.init({ duration: 1000, once: true });
+  @ViewChild('carouselImages') imageTrack!: ElementRef;
+  @ViewChild('carouselText') textTrack!: ElementRef;
 
-  setInterval(() => {
-    this.fadeOutIn(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    });
-  }, 5000); // change every 5 seconds
-}
+  ngAfterViewInit(): void {
+    setInterval(() => {
+      this.index = (this.index + 1) % this.totalSlides;
+      this.updateSlide();
+    }, 6000);
+  }
 
+  updateSlide() {
+    this.imageTrack.nativeElement.style.transform = `translateX(-${this.index * 100}%)`;
+    this.textTrack.nativeElement.style.transform = `translateX(-${this.index * 100}%)`;
+  }
 
-  
-  fadeOutIn(changeImageCallback: () => void) {
-    this.isImageVisible = false;
-    setTimeout(() => {
-      changeImageCallback();
-      this.isImageVisible = true;
-    }, 500); // matches half of CSS transition duration
+  goToSlide(i: number) {
+    this.index = i;
+    this.updateSlide();
   }
 }

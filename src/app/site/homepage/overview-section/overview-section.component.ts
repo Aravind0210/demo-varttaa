@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class OverviewSectionComponent implements AfterViewInit {
   @ViewChild('carousel') carouselRef!: ElementRef;
+  isPopupVisible = false;
 
   products = [
     {
@@ -60,4 +61,18 @@ export class OverviewSectionComponent implements AfterViewInit {
       container.scrollBy({ left: 300, behavior: 'smooth' });
     }
   }
+
+  
+
+  toggleQuotePopup() {
+    this.isPopupVisible = !this.isPopupVisible;
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    // You can add form submission logic here, e.g., send data to API
+    alert('Thank you! Your request has been submitted.');
+    this.toggleQuotePopup();
+  }
+
 }
