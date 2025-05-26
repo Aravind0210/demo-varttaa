@@ -1,7 +1,7 @@
 import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-overview-section',
@@ -13,14 +13,14 @@ import { FormsModule } from '@angular/forms';
 export class OverviewSectionComponent implements AfterViewInit {
   @ViewChild('carousel') carouselRef!: ElementRef;
   isPopupVisible = false;
-  
+  requirement = '';
 
-isModalOpen = false;
-modalTitle = '';
-modalImage = '';
-customerName = '';
-customerPhone = '';
-showToast = false;
+  isModalOpen = false;
+  modalTitle = '';
+  modalImage = '';
+  customerName = '';
+  customerPhone = '';
+  showToast = false;
 
 
   products = [
@@ -138,15 +138,21 @@ openModal(title: string, image: string): void {
 
 
 
+
+
   toggleQuotePopup() {
     this.isPopupVisible = !this.isPopupVisible;
   }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-    // You can add form submission logic here, e.g., send data to API
-    alert('Thank you! Your request has been submitted.');
-    this.toggleQuotePopup();
+  onSubmit(form: NgForm) {
+  if (form.invalid) {
+    form.controls['requirement']?.markAsTouched(); // marks textarea as touched to show error
+    return;
   }
+
+  alert('Thank you! Your request has been submitted.');
+  this.toggleQuotePopup();
+  form.resetForm();
+}
 
 }
