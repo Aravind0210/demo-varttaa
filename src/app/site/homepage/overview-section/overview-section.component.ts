@@ -1,17 +1,27 @@
 import {  Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-overview-section',
   standalone: true, 
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,FormsModule],
   templateUrl: './overview-section.component.html',
   styleUrls: ['./overview-section.component.css']
 })
 export class OverviewSectionComponent implements AfterViewInit {
   @ViewChild('carousel') carouselRef!: ElementRef;
   isPopupVisible = false;
+  
+
+isModalOpen = false;
+modalTitle = '';
+modalImage = '';
+customerName = '';
+customerPhone = '';
+showToast = false;
+
 
   products = [
     {
@@ -62,7 +72,71 @@ export class OverviewSectionComponent implements AfterViewInit {
     }
   }
 
+
+
+  Our_products = [
+    {
+      name: 'Sugarcane Juice Machine',
+      image: 'https://5.imimg.com/data5/CF/ZS/QC/ANDROID-5413612/product-jpeg-500x500.jpg',
+    },
+    {
+      name: 'Waffle Maker Machine',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2023/11/362580297/HZ/MV/TO/31444973/waffle-cone-maker-250x250.jpeg',
+    },
+    {
+      name: 'Pizza Oven',
+      image: 'https://5.imimg.com/data5/ANDROID/Default/2021/7/VR/PW/LK/31444973/product-jpeg-500x500.jpg',
+    },
+    {
+      name: 'Ice Cream Machine',
+      image: 'https://5.imimg.com/data5/ANDROID/Default/2024/6/423994212/NJ/FZ/OD/5413612/product-jpeg-500x500.jpg',
+    },
+    {
+      name: 'Popcorn Machine',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2024/7/431932335/PZ/KP/WC/5413612/popcorn-making-machine-500x500.png',
+    },
+    {
+      name: 'Bakery Machines',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2024/5/420956970/ZL/KO/RH/31444973/electric-2-deck-4-tray-oven-250x250.png',
+    },
+  ];
+
+
+
+
+sendToWhatsApp(): void {
+  if (!this.customerName || !this.customerPhone) {
+    alert('Please enter both name and phone number.');
+    return;
+  }
+
+  this.showToast = true;
+
+  setTimeout(() => {
+    const phone = '919840143117'; // Replace with your number
+    const message = `Hello, I am interested in *${this.modalTitle}*.\n\nName: ${this.customerName}\nPhone: ${this.customerPhone}`;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+    this.showToast = false;
+  }, 1500); // delay WhatsApp redirect to show toast
+}
   
+
+openModal(title: string, image: string): void {
+  this.modalTitle = title;
+  this.modalImage = image;
+  this.isModalOpen = true;
+  this.showToast = false;
+}
+
+  closeModal(): void {
+  this.isModalOpen = false;
+  this.customerName = '';
+  this.customerPhone = '';
+  this.showToast = false;
+}
+
+
 
   toggleQuotePopup() {
     this.isPopupVisible = !this.isPopupVisible;

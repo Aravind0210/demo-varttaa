@@ -1,4 +1,4 @@
-<div class="bg-white py-16 px-4 md:px-16">
+<div class="bg-white mx-auto px-4 py-10 max-w-7xl" data-aos="fade-up">
   <!-- Section Heading -->
   <!-- Optional heading if re-enabled -->
   <!-- <h2 class="text-4xl font-bold text-center text-[#f8622e] mb-12" data-aos="fade-down">Our Hot Selling Products</h2> -->
@@ -65,101 +65,113 @@
 
 
 
-<div class="container mx-auto p-9 text-gray-700 md:p-4">
-  <div class="border-b border-gray-300 pb-6 mb-10 md:left-[30px] md:relative" data-aos="fade-up">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Our Products</h2>
-    <div class="h-1 w-20 bg-orange-500 mt-3 rounded"></div>
-    <p class="mt-4 text-base md:text-lg text-gray-600">
+<div class="container mx-auto px-4 py-10">
+  <!-- Section Header Wrapper -->
+  <div class="text-center md:text-left">
+    <!-- Title -->
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 inline-block">
+      Our Products
+    </h2>
+
+    <!-- Orange Line -->
+    <div class="h-1 w-20 bg-orange-500 mt-2 mb-4 mx-auto md:mx-0 rounded"></div>
+
+    <!-- Description -->
+    <p class="mt-4 text-base md:text-lg text-gray-600 mb-4">
       We are renowned wholesale traders of high-quality Chapati Making Machine, Commercial Fryer, Juicer Machine, etc.
     </p>
   </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="catlist">
-
-    <!-- Bakery Machines Block -->
-    <div class="relative group bg-white shadow-md rounded p-6" data-aos="zoom-in" data-aos-delay="100">
-      <div class="main-image text-center">
-        <a href="bakery-machines.html#electric-2-deck-4-tray-oven">
-          <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/420956970/ZL/KO/RH/31444973/electric-2-deck-4-tray-oven-250x250.png" alt="Electric 2 Deck 4 Tray Oven" class="mx-auto" />
-        </a>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <ng-container *ngFor="let product of Our_products">
+    <div
+      class="bg-white border border-gray-200 hover:border-orange-400 hover:shadow-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group p-4"
+      (click)="openModal(product.name, product.image)"
+    >
+      <div class="flex justify-center items-center h-64 overflow-hidden bg-gray-50 p-2">
+        <img [src]="product.image"
+             [alt]="product.name"
+             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" />
       </div>
-      <div class="slideshow-wrapper hidden group-hover:block mt-4" id="sliderdiv0">
-        <div class="slideshow flex overflow-x-auto space-x-4" id="slideshow0">
-          <a href="bakery-machines.html#triple-deck-gas-bakery-oven">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/328964354/ST/ZY/KJ/31444973/triple-deck-gas-bakery-oven-250x250.png" alt="Triple Deck Gas Bakery Oven" />
-          </a>
-          <a href="bakery-machines.html#egg-roll-machine">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2021/6/GN/QU/UE/31444973/product-jpeg-250x250.jpg" alt="Egg Roll Machine" />
-          </a>
-          <a href="bakery-machines.html#commercial-baking-oven">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/420500963/LJ/UX/FJ/31444973/berjaya-baking-oven-250x250.png" alt="Commercial Baking Oven" />
-          </a>
-          <a href="bakery-machines.html#electric-baking-oven">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/364778475/VL/SO/GR/31444973/electric-baking-oven-250x250.png" alt="Electric Baking Oven" />
-          </a>
-        </div>
+      <div class="text-center mt-4">
+        <h3 class="font-semibold text-lg text-gray-700 group-hover:text-orange-600">{{ product.name }}</h3>
       </div>
-      <h3 class="text-center text-lg font-bold mt-6">
-        <a href="bakery-machines.html" class="text-gray-800 hover:text-orange-600">Bakery Machines</a>
-      </h3>
+    </div>
+  </ng-container>
+</div>
+
+
+  <!-- Quick View Modal -->
+<div
+  *ngIf="isModalOpen"
+  class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 px-2"
+>
+  <div class="bg-white rounded-xl border border-gray-200 shadow-2xl w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] lg:max-w-[35%] p-4 sm:p-6 relative">
+    <!-- Close Button -->
+    <button
+      (click)="closeModal()"
+      class="absolute top-2 right-3 text-gray-400 hover:text-gray-700 text-2xl"
+      aria-label="Close Modal"
+    >
+      &times;
+    </button>
+
+    <!-- Title -->
+    <h2 class="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-3">
+      {{ modalTitle }}
+    </h2>
+
+    <!-- Product Image -->
+    <div class="flex justify-center mb-4">
+      <img
+        [src]="modalImage"
+        [alt]="modalTitle"
+        class="w-24 sm:w-36 h-24 sm:h-36 object-contain rounded-lg border border-gray-200 shadow-sm"
+      />
     </div>
 
-    <!-- Waffle Maker Block -->
-    <div class="relative group bg-white shadow-md rounded p-6" data-aos="zoom-in" data-aos-delay="200">
-      <div class="main-image text-center">
-        <a href="waffle-maker-machine.html#waffle-cone-maker">
-          <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/362580297/HZ/MV/TO/31444973/waffle-cone-maker-250x250.jpeg" alt="Waffle Cone Maker" class="mx-auto" />
-        </a>
-      </div>
-      <div class="slideshow-wrapper hidden group-hover:block mt-4" id="sliderdiv1">
-        <div class="slideshow flex overflow-x-auto space-x-4" id="slideshow1">
-          <a href="waffle-maker-machine.html#heart-shape-waffle-maker">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/422698735/BJ/WO/DH/31444973/heart-shape-waffle-maker-250x250.jpeg" alt="Heart Shape Waffle Maker" />
-          </a>
-          <a href="waffle-maker-machine.html#waffle-maker-machine">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/334520401/ZA/XC/DX/31444973/waffle-maker-machine-250x250.jpg" alt="Waffle Maker Machine" />
-          </a>
-          <a href="waffle-maker-machine.html#stick-waffle-maker">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/421086431/IN/LK/WE/31444973/stick-waffle-maker-250x250.jpg" alt="Stick Waffle Maker" />
-          </a>
-          <a href="waffle-maker-machine.html#cookpro-rotating-waffle-maker">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/362585884/KO/AH/AS/31444973/rotating-waffle-maker-250x250.jpg" alt="COOKPRO Rotating Waffle Maker" />
-          </a>
-        </div>
-      </div>
-      <h3 class="text-center text-lg font-bold mt-6">
-        <a href="waffle-maker-machine.html" class="text-gray-800 hover:text-orange-600">Waffle Maker Machine</a>
-      </h3>
+    <!-- Description -->
+    <p class="text-center text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 px-2 sm:px-4">
+      Discover the efficiency and quality of our premium commercial
+      <span class="font-black">{{ modalTitle }}</span>. Perfect for restaurants, cafes, and food businesses.
+    </p>
+
+    <!-- Input Fields -->
+    <div class="space-y-3">
+      <input
+        type="text"
+        [(ngModel)]="customerName"
+        placeholder="Your Name"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+      />
+      <input
+        type="tel"
+        [(ngModel)]="customerPhone"
+        placeholder="Phone Number"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+      />
     </div>
 
-    <!-- Pizza Maker Block -->
-    <div class="relative group bg-white shadow-md rounded p-6" data-aos="zoom-in" data-aos-delay="300">
-      <div class="main-image text-center">
-        <a href="pizza-maker-machine.html#pizza-oven">
-          <img src="https://5.imimg.com/data5/ANDROID/Default/2021/7/VR/PW/LK/31444973/product-jpeg-500x500.jpg" alt="Pizza Oven" class="mx-auto" />
-        </a>
-      </div>
-      <div class="slideshow-wrapper hidden group-hover:block mt-4" id="sliderdiv1">
-        <div class="slideshow flex overflow-x-auto space-x-4" id="slideshow1">
-          <a href="pizza-maker-machine.html#electric-pizza-oven">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2021/7/CE/IW/IK/31444973/1626809272164-jpg-500x500.jpg" alt="Electric Pizza Oven" />
-          </a>
-          <a href="pizza-maker-machine.html#commercial-pizza-maker">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2021/7/UR/TX/YA/31444973/product-jpeg-500x500.jpg" alt="Commercial Pizza Maker" />
-          </a>
-          <a href="pizza-maker-machine.html#countertop-pizza-oven">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2021/7/EK/BF/TO/31444973/product-jpeg-500x500.jpg" alt="Countertop Pizza Oven" />
-          </a>
-          <a href="pizza-maker-machine.html#wood-fired-pizza-oven">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/446348992/JS/BG/GS/31444973/double-deck-4-tray-electric-oven-500x500.jpg" alt="Wood Fired Pizza Oven" />
-          </a>
-        </div>
-      </div>
-      <h3 class="text-center text-lg font-bold mt-6">
-        <a href="pizza-maker-machine.html" class="text-gray-800 hover:text-orange-600">Pizza Maker Machine</a>
-      </h3>
+    <!-- WhatsApp Button -->
+    <button
+      (click)="sendToWhatsApp()"
+      class="mt-5 w-full py-3 bg-green-600 hover:bg-green-700 text-white text-sm sm:text-lg font-semibold rounded-lg transition-all"
+    >
+      Send Enquiry on WhatsApp
+    </button>
+
+    <!-- Toast Message -->
+    <div *ngIf="showToast" class="mt-4 text-center text-green-600 font-medium text-sm animate-pulse">
+      Redirecting to WhatsApp...
     </div>
   </div>
+</div>
+
+
+
+
+</div>
+
+
 
   <!-- Instant Quote Button -->
   <!-- <div class="text-center mt-10 px-4">
@@ -230,7 +242,7 @@
       </form>
     </div>
   </div> -->
-</div>
+
 
 
 
@@ -278,7 +290,7 @@
             type="submit"
             class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md text-base font-medium shadow-md transition-all duration-300"
             data-aos="zoom-in"
-            data-aos-delay="500"
+            
           >
             Send Enquiry
           </button>
