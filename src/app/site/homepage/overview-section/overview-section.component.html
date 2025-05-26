@@ -67,37 +67,45 @@
 
 <div class="container mx-auto px-4 py-10">
   <!-- Section Header Wrapper -->
-  <div class="text-center md:text-left">
-    <!-- Title -->
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 inline-block">
-      Our Products
-    </h2>
+  <div class="text-center md:text-left" data-aos="fade-down">
+  <!-- Title -->
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-800 inline-block">
+    Our Products
+  </h2>
 
-    <!-- Orange Line -->
-    <div class="h-1 w-20 bg-orange-500 mt-2 mb-4 mx-auto md:mx-0 rounded"></div>
+  <!-- Orange Line -->
+  <div class="h-1 w-20 bg-orange-500 mt-2 mb-4 mx-auto md:mx-0 rounded"></div>
 
-    <!-- Description -->
-    <p class="mt-4 text-base md:text-lg text-gray-600 mb-4">
-      We are renowned wholesale traders of high-quality Chapati Making Machine, Commercial Fryer, Juicer Machine, etc.
-    </p>
-  </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-  <ng-container *ngFor="let product of Our_products">
+  <!-- Description -->
+  <p class="mt-4 text-base md:text-lg text-gray-600 mb-4">
+    We are renowned wholesale traders of high-quality Chapati Making Machine, Commercial Fryer, Juicer Machine, etc.
+  </p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <ng-container *ngFor="let product of Our_products; let i = index">
     <div
       class="bg-white border border-gray-200 hover:border-orange-400 hover:shadow-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group p-4"
       (click)="openModal(product.name, product.image)"
+      [attr.data-aos]="'zoom-in'"
+      [attr.data-aos-delay]="i * 100"
     >
       <div class="flex justify-center items-center h-64 overflow-hidden bg-gray-50 p-2">
-        <img [src]="product.image"
-             [alt]="product.name"
-             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+        />
       </div>
       <div class="text-center mt-4">
-        <h3 class="font-semibold text-lg text-gray-700 group-hover:text-orange-600">{{ product.name }}</h3>
+        <h3 class="font-semibold text-lg text-gray-700 group-hover:text-orange-600">
+          {{ product.name }}
+        </h3>
       </div>
     </div>
   </ng-container>
 </div>
+
 
 
   <!-- Quick View Modal -->
