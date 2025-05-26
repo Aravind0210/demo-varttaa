@@ -27,3 +27,4 @@ export const adminRoutes: Routes = [
     ],
   },
 ];
+export default adminRoutes;

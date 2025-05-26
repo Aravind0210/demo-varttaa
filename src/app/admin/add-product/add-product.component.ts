@@ -5,6 +5,7 @@ import {
   FormControl,
   Validators,
   ReactiveFormsModule,
+  FormArray,
 } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
@@ -17,89 +18,52 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./add-product.component.css'], // fix here: styleUrls (plural)
 })
 export class AddProductComponent implements OnInit {
-  productForm!: FormGroup;
-  dynamicFields: string[] = [];
-  imagePreview: string | ArrayBuffer | null = null;
+  specsList = [
+    { key: 'operationMode', label: 'Operation Mode' },
+    { key: 'material', label: 'Material' },
+    { key: 'automationGrade', label: 'Automation Grade' },
+    { key: 'powerSource', label: 'Power Source' },
+    { key: 'usage', label: 'Usage/Application' },
+    { key: 'countryOfOrigin', label: 'Country of Origin' },
+    { key: 'voltage', label: 'Voltage' },
+    { key: 'frequency', label: 'Frequency' },
+    { key: 'warranty', label: 'Warranty' },
+    // Add more specs as needed
+  ];
 
-  categorySpecs: { [key: string]: string[] } = {
-    'Ice Cream Machine': ['Capacity', 'Voltage', 'Type'],
-    'Pizza Oven': ['Chambers', 'Power', 'Dimensions'],
-    'Hot Dog Roller': ['Rollers', 'Power', 'Material'],
-  };
+  productForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {}
+  constructor(private fb: FormBuilder) {
+    const specsControls = this.specsList.reduce((acc, spec) => {
+      acc[spec.key] = [''];
+      return acc;
+    }, {} as { [key: string]: any });
 
-  ngOnInit(): void {
     this.productForm = this.fb.group({
-      name: ['', Validators.required],
-      price: ['', Validators.required],
-      category: ['', Validators.required],
-      image: [null],
-      specs: this.fb.group({}), // initially empty group
-    });
-
-    // Subscribe to category changes to update specs dynamically
-    this.productForm.get('category')?.valueChanges.subscribe((category) => {
-      this.updateSpecsForm(category);
+      name: [''],
+      brand: [''],
+      productType: [''],
+      ...specsControls,
     });
   }
-
-  get specsGroup(): FormGroup {
-    return this.productForm.get('specs') as FormGroup;
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
-  get categoryList(): string[] {
-    return Object.keys(this.categorySpecs);
-  }
+  onSubmit() {
+    if (this.productForm.valid) {
+      const { name, brand, productType, ...specs } = this.productForm.value;
 
-  updateSpecsForm(category: string): void {
-    this.dynamicFields = this.categorySpecs[category] || [];
-
-    const specsGroup: { [key: string]: FormControl } = {};
-    this.dynamicFields.forEach((field) => {
-      specsGroup[field] = new FormControl('', Validators.required);
-    });
-
-    // Replace the 'specs' form group with new controls dynamically
-    this.productForm.setControl('specs', this.fb.group(specsGroup));
-  }
-
-  onImageSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement)?.files?.[0];
-    if (file) {
-      this.productForm.patchValue({ image: file });
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result;
+      const productData = {
+        name,
+        brand,
+        productType,
+        specs,
       };
-      reader.readAsDataURL(file);
-    }
-  }
 
-  onSubmit(): void {
-    if (this.productForm.invalid) {
-      this.productForm.markAllAsTouched();
-      return;
+      console.log('Submitted product:', productData);
+      alert('Product added! Check console for data.');
+      this.productForm.reset();
     }
-
-    const formData = new FormData();
-    formData.append('name', this.productForm.value.name);
-    formData.append('price', this.productForm.value.price);
-    formData.append('category', this.productForm.value.category);
-    formData.append('specs', JSON.stringify(this.productForm.value.specs));
-    if (this.productForm.value.image) {
-      formData.append('image', this.productForm.value.image);
-    }
-
-    this.productService.addProduct(formData).subscribe({
-      next: () => {
-        alert('Product added successfully!');
-        this.productForm.reset();
-        this.imagePreview = null;
-      },
-      error: () => {
-        alert('Failed to add product.');
-      },
-    });
   }
 }
